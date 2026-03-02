@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Amar Zulić</title>
+
+    <style>
+
+body {
+    margin: 0;
+    background-color: orange;
+    position: relative;
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(245, 97, 0, 0),
+        rgba(249, 140, 20, 0.95)
+    );
+
+    pointer-events: none; /* allows clicking through */
+    z-index: -1;
+}
+
+.Intro_Section {
+    min-height: calc(100vh - 11vh); /* full viewport minus header height */
+    margin-top: 5vh;               /* push below fixed header */
+    display: flex;
+    align-items: center;
+
+    /* Use gap instead of padding to separate image and text */
+    gap: 4vw;
+
+    position: relative;
+    padding: 0 20vw; /* optional: horizontal padding */
+}
+
+/* Force image to fixed size, so flex layout doesn’t shrink it */
+.Profile_Pic {
+    flex: none;           /* don't grow or shrink */
+    width: 250px;         /* fixed width */
+    height: auto;     
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.Profile_Pic img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+/* Intro text */
+.Intro_Text {
+    flex: 1;              /* takes remaining space */
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+    font-family: monospace;
+    color: rgb(38, 27, 7);
+
+    /* Move text right if needed */
+    transform: translateY(90px) translateX(500px); /* default */
+}
+
+/* To move text slightly right: */
+.Intro_Text.MoveRight {
+    transform: translateY(-1vw) translateX(3vw);
+}
+    .Visible {     /* Visible class */
+        opacity: 1;
+        transform: translateY(0);
+
+    }
+
+    .Projects_Section {
+        padding: 4% 2% 2% 2%;
+        opacity: 0;
+        transform: translateY(25px);
+        transition: opacity 1s ease, transform 1s ease;
+    }
+
+    .Projects_Section.Visible {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .Projects_Container {
+        display: flex;
+        gap: 20px;
+
+        overflow-x: auto;
+        scroll-behavior: smooth;
+
+        scrollbar-width: none; /* Firefox */
+ 
+
+        padding: 1% 0% 2% 0%
+    }
+
+    .Project_Box {
+
+        flex: 0 0 40vw;
+
+        cursor: pointer;
+
+
+        height: 40vh;
+
+        background-color: white;
+
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+
+        border-radius: 35px;
+
+        transition: transform 0.3s ease;
+
+        box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+    }
+
+    .Project_Box:hover {
+        transform: scale(1.01)
+
+    }
+
+#Carousel_Dots{
+    display:flex;
+    justify-content:center;
+    gap:10px;
+    margin-top:10px;
+}
+
+.Dot{
+    width:10px;
+    height:10px;
+    border-radius:50%;
+    background:#6b4f16;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.Dot.Active{
+    background:rgb(60, 39, 29);
+    transform:scale(1.25);
+}
+.Projects_Container::-webkit-scrollbar {
+    display: none; /* Chrome, Safari, Edge */
+}
+
+.Software_Used_Section {
+    padding: 4% 2%;
+    display: flex;
+    justify-content: center;
+
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.Software_Used_Section.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Software_Used img {
+    width: 100%;
+    height: auto;
+    scale: 1;
+}
+
+.Header_Box {
+    width: 100%;
+    height: 11vh;
+    background-color: rgb(38, 27, 7);
+    
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+    padding: 0 2vw;
+    box-sizing: border-box;
+
+    z-index: 1000;
+}
+
+.Temp_Logo {
+    position: absolute;
+    left: 1.1vw;
+    top: 50%;
+    transform: translateY(-50%);
+
+    width: 50px;
+    height: 50px;
+
+    background-color: orange;
+    border-radius: 10px;
+}
+
+
+.Hamburger {
+    width: 2.5rem;
+    height: 1.6rem;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.Hamburger:hover {
+    transform: scale(1.1);
+}
+
+.Hamburger div {
+    height: 0.25rem;
+    width: 100%;
+    background-color: orange;
+    border-radius: 2rem;
+}
+
+/* ===========================
+   DROPDOWN MENU
+=========================== */
+
+.Menu {
+    position: absolute;
+    top: 100%;
+    right: 2vw;
+
+    width: 15rem;
+    padding: 1rem 0;
+
+    background-color: rgb(38, 27, 7);
+    border-radius: 1.2rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+
+    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+
+    transition: all 0.3s ease;
+}
+
+.Menu.open {
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+}
+
+/* Menu Links */
+
+.Menu a {
+    padding: 0.8rem 1.5rem;
+
+    text-decoration: none;
+    color: orange;
+
+    font-family: monospace;
+    font-size: 0.95rem;
+
+    transition: all 0.25s ease;
+}
+
+.Menu a:hover {
+    background-color: orange;
+    color: rgb(38, 27, 7);
+
+}
+.Projects_Button {
+    display: inline-block;
+    margin: 40px auto 0 auto;
+    padding: 18px 40px;
+
+    background-color: rgb(38, 27, 7);
+    color: orange;
+
+    font-family: monospace;
+    font-size: 18px;
+    text-decoration: none;
+
+    border-radius: 50px;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+
+    transition: all 0.3s ease;
+
+}
+
+/* center it */
+.Projects_Section {
+    text-align: center;
+}
+
+/* hover effect */
+.Projects_Button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.35);
+}
+
+.Complex_Grid_Section {
+    padding: 6% 4%;
+}
+
+.Complex_Grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-rows: 250px 250px;
+    gap: 20px;
+}
+ 
+/*
+* {
+    outline: 1px solid red;
+} 
+*/
+
+
+.A { grid-column: 1 / 2; grid-row: 1 / 2; }
+.B { grid-column: 2 / 3; grid-row: 1 / 2; }
+.C { grid-column: 1 / 3; grid-row: 2 / 3; }
+
+.D { grid-column: 3 / 4; grid-row: 1 / 3; }
+.E { grid-column: 4 / 5; grid-row: 1 / 3; }
+
+/* Box Styling */
+
+.Box {
+    background-color: rgb(38, 27, 7);
+    color: orange;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    font-family: monospace;
+    font-size: 20px;
+
+    border-radius: 35px;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: all 0.3s ease;
+}
+
+/* Hover like your button */
+
+.Box:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+.Complex_Grid_Section.Fade_Element {
+    padding: 6% 8%;
+    opacity: 0;
+    transform: translateY(25px);
+    transition: opacity 1s ease, transform 1s ease;
+}
+
+.Complex_Grid_Section.Fade_Element.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.Scroll_Indicator {
+    position: absolute;
+    bottom: 6vh;
+    left: 50%;
+    transform: translateX(-50%);
+    
+    font-size: 32px;
+    color: rgb(51, 26, 2);
+    opacity: 0.8;
+    font-family: monospace;
+
+    animation: bounce 2.1s ease-in-out infinite;
+    transition: opacity 0.4s ease;
+}
+
+/* Subtle bounce */
+@keyframes bounce {
+    0%, 100% { transform: translate(-50%, 0); }
+    50% { transform: translate(-50%, 25px); }
+}
+
+/* Hidden state */
+.Scroll_Indicator.Hidden {
+    opacity: 0;
+    pointer-events: none;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+<section class="Header">
+
+<div class="Header_Box">
+
+    <div class="Temp_Logo"></div>
+
+    <div class="Hamburger" id="hamburger">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+
+    <div class="Menu" id="menu">
+        <a href="index.html">Home</a>
+        <a href="About.html">About Me</a>
+        <a href="projects.html">Projects</a>
+        <a href="work.html">Work Experience</a>
+        <a href="references.html">References</a>
+        <a href="contact.html">Contacts</a>
+    </div>
+
+</div>
+
+</div>
+
+</section>
+    
+<section class="Intro_Section">
+
+    <div class="Profile_Pic">
+        <img src="Profilna.png.jpg" alt="Amar Zulić">   
+    </div>
+
+    <div class="Intro_Text MoveRight">
+        <h1>Amar Zulić</h1>
+        <p>Graphic Designer, Animator, Motion Designer, 3D Artist and Web Developer.
+        </p>
+
+
+  
+    </div>
+
+    <div class="Scroll_Indicator">
+    ↓
+    </div>
+
+</section>
+
+<section class="Projects_Section Fade_Element">
+
+    <h2 style="text-align:left; margin-bottom:10px; margin-left:30px; font-family: monospace;">Recent Projects </h2>
+    <div class="Projects_Container" id="Projects_Container">
+
+
+
+        <div class="Project_Box">Project 1</div>
+        <div class="Project_Box">Project 2</div>
+        <div class="Project_Box">Project 3</div>
+        <div class="Project_Box">Project 4</div>
+
+        <div class="Project_Box">Project 1</div>
+        <div class="Project_Box">Project 2</div>
+        <div class="Project_Box">Project 3</div>
+        <div class="Project_Box">Project 4</div>
+
+    </div>
+
+     <div id="Carousel_Dots"></div>
+
+     <a href="projects.html" class="Projects_Button">
+    Visit Projects page
+</a>
+
+</section>
+
+
+<section class="Software_Used_Section Fade_Element">
+
+
+
+<div class="Software_Used">
+    <img src="Software_Used.png" alt="Software_Used">
+</div>
+
+</section>
+
+
+<section class="Complex_Grid_Section Fade_Element">
+
+
+    <div class="Complex_Grid">
+
+        <div class="Box A">About Me</div>
+        <div class="Box B">Work Experience</div>
+        <div class="Box C">See my Contacts</div>
+        <div class="Box D">Other Skills</div>
+        <div class="Box E">References</div>
+
+    </div>
+
+</section>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const container = document.getElementById("Projects_Container");
+    const fadeElements = document.querySelectorAll('.Fade_Element');
+    const dotsContainer = document.getElementById("Carousel_Dots");
+
+    /* --------------------------
+       Intro text fade-in
+    ---------------------------*/
+    const introText = document.querySelector('.Intro_Text');
+    setTimeout(() => {
+        introText.classList.add('Visible');
+    }, 100);
+
+    if (!container) return;
+
+    /* --------------------------
+       Original project boxes
+    ---------------------------*/
+    let projectBoxes = Array.from(container.children);
+    const itemCount = projectBoxes.length / 2; // original projects count
+
+    /* --------------------------
+       Duplicate items for infinite scroll
+    ---------------------------*/
+    const originalItems = projectBoxes.slice(0, itemCount);
+    originalItems.forEach(item => {
+        const cloneStart = item.cloneNode(true);
+        const cloneEnd = item.cloneNode(true);
+        container.insertBefore(cloneStart, container.firstChild);
+        container.appendChild(cloneEnd);
+    });
+
+    /* Update projectBoxes after cloning */
+    projectBoxes = Array.from(container.children);
+
+    /* --------------------------
+       Create dots
+    ---------------------------*/
+    const dots = [];
+    for(let i = 0; i < itemCount; i++){
+        const dot = document.createElement("div");
+        dot.classList.add("Dot");
+
+        dot.addEventListener("click", () => {
+            const boxWidth = projectBoxes[0].offsetWidth + 10;
+            container.scrollTo({
+                left: (i + itemCount) * boxWidth,
+                behavior: "smooth"
+            });
+        });
+
+        dotsContainer.appendChild(dot);
+        dots.push(dot);
+    }
+
+    /* --------------------------
+       Update active dot
+    ---------------------------*/
+function updateDots(){
+    const boxWidth = projectBoxes[0].offsetWidth + 20;
+
+    const offset = boxWidth * 0.9; // 30% into the slide
+
+    let index = Math.floor((container.scrollLeft + offset) / boxWidth);
+
+    index = (index % itemCount + itemCount) % itemCount;
+
+    dots.forEach(dot => dot.classList.remove("Active"));
+
+    if(dots[index]) dots[index].classList.add("Active");
+}
+
+    /* --------------------------
+       Fade-in observer for sections
+    ---------------------------*/
+    const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('Visible');
+
+                /* Initialize carousel AFTER fade-in */
+                const boxWidth = projectBoxes[0].offsetWidth + 20;
+                container.scrollLeft = itemCount * boxWidth;     // start on first project
+                updateDots();
+            }
+        });
+    }, { threshold: 0.5 });
+
+    fadeElements.forEach(el => observer.observe(el));
+
+    /* --------------------------
+       Infinite scroll logic
+    ---------------------------*/
+    container.addEventListener("scroll", () => {
+
+    const boxWidth = projectBoxes[0].offsetWidth + 20;
+    const maxScroll = container.scrollWidth - container.clientWidth;
+
+    if(container.scrollLeft >= maxScroll - 5){
+        container.scrollLeft = itemCount * boxWidth;
+    }
+
+    if(container.scrollLeft <= 5){
+        container.scrollLeft = itemCount * boxWidth;
+    }
+
+    updateDots();
+
+    });
+
+/* --------------------------
+   Precise Drag Support
+---------------------------*/
+
+let isDragging = false;
+let startX = 0;
+let scrollStart = 0;
+
+container.addEventListener("mousedown", (e) => {
+    isDragging = true;
+    startX = e.clientX;
+    scrollStart = container.scrollLeft;
+    container.style.scrollBehavior = "auto"; // disable smooth scroll while dragging
+});
+
+container.addEventListener("mouseup", () => {
+    isDragging = false;
+    container.style.scrollBehavior = "smooth"; // restore smooth scroll
+});
+
+container.addEventListener("mouseleave", () => {
+    isDragging = false;
+    container.style.scrollBehavior = "smooth";
+});
+
+container.addEventListener("mousemove", (e) => {
+    if (!isDragging) return;
+
+    const dx = e.clientX - startX;
+    container.scrollLeft = scrollStart - dx;
+});
+
+
+
+/* --------------------------
+   Play sound on first interaction
+---------------------------*/
+
+/* const sound = new Audio("Miki_Milane.mp3");
+sound.volume = 0.1;
+
+window.addEventListener("pointerdown", function () {
+
+    sound.currentTime = 0;
+    sound.play();
+
+}, { once: true }); */
+
+const scrollIndicator = document.querySelector(".Scroll_Indicator");
+
+window.addEventListener("scroll", () => {
+    if (window.scrollY > 50) {
+        scrollIndicator.classList.add("Hidden");
+    } else {
+        scrollIndicator.classList.remove("Hidden");
+    }
+});
+
+});
+
+const hamburger = document.getElementById("hamburger");
+const menu = document.getElementById("menu");
+
+hamburger.addEventListener("click", () => {
+    menu.classList.toggle("open");
+});
+
+document.addEventListener("click", (e) => {
+    if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
+        menu.classList.remove("open");
+    }
+});
+
+history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
+</script>
+
+</body>

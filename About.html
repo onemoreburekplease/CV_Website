@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>About Me – Amar Zulić</title>
+
+<style>
+
+body {
+    margin: 0;
+    background-color: orange;
+    font-family: monospace;
+    color: rgb(38, 27, 7);
+}
+
+/* Gradient overlay (same as homepage) */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+
+    background: linear-gradient(
+        to bottom,
+        rgba(245, 97, 0, 0),
+        rgba(249, 140, 20, 0.95)
+    );
+
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* Header */
+.Header_Box {
+    width: 100%;
+    height: 11vh;
+    background-color: rgb(38, 27, 7);
+
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    display: flex;
+    align-items: center;
+    padding: 0 2vw;
+
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+.Header_Box a {
+    display: inline-block;
+
+    padding: 0.6rem 1.4rem;
+
+    background-color: orange;
+    color: rgb(38, 27, 7);
+
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-family: monospace;
+
+    border-radius: 2rem;
+
+    transition: all 0.25s ease;
+}
+
+/* Hover effect (inverse like menu) */
+.Header_Box a:hover {
+    background-color: rgb(60, 39, 29);
+    color: orange;
+}
+/* =====================
+   ABOUT SECTION
+===================== */
+
+.About_Section {
+    margin-top: 19vh;
+    padding: 0 15vw 8vh 15vw;
+    line-height: 2;
+    font-size: 18px;
+
+    opacity: 0;
+    transform: translateY(90px);
+    transition: opacity 0.5s ease-in, transform 0.9s ease;
+}
+
+.About_Section.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.About_Section_Dark {
+    margin-top: 3vh;
+    padding: 2vh 15vw 15vh 15vw;
+    line-height: 2;
+    font-size: 18px;
+    background-color: rgb(38, 27, 7);
+    color: orange;
+
+    opacity: 0;
+    transform: translateY(90px);
+    transition: opacity 0.5s ease-in, transform 0.9s ease;
+}
+
+.About_Section_Dark.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.About_Section_Personal {
+    margin-top: 3vh;
+    padding: 2vh 15vw 10vh 15vw;
+    line-height: 2;
+    font-size: 18px;
+    color: rgb(38, 27, 7);
+
+    opacity: 0;
+    transform: translateY(90px);
+    transition: opacity 0.5s ease-in, transform 0.9s ease;
+}
+
+.About_Section_Personal.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="Header_Box">
+    <a href="Home.html">← Back to Home</a>
+</div>
+
+<section class="About_Section" id="about_light">
+
+<h1>Pozdrav!</h1>
+
+<p>
+My name is Amar Zulić, I am a graphic designer and motion designer based in Ljubljana.
+</p>
+
+<p>
+I've completed my bachelor's degree in <b>Marketing and Advertizing</b> at the University of Ljubljana, School of Economics, and am currently pursuing a master's degree in <b>Tourism Marketing.</b>
+</p>
+
+
+
+<p>
+I find ways to combine marketing with design.
+</p>
+
+<p>
+I have worked in many different fields of design, I've done print to digital, 2D to 3D, static to motion, and I am currently exploring Web development and Interactive design. Web design and coding is something that (at least currently) interests me most.
+</p>
+
+
+
+</section>
+
+<section class="About_Section_Dark" id="about_dark">
+
+<h1>Technical Info</h1>
+
+<p>
+Software I use: Adobe Photoshop, Adobe Illustrator, Adobe After Effects, Adobe Premiere Pro, Adobe InDesign, Blender, Figma, coding languages (HTML, CSS, JavaScript), and more.
+</p>
+
+<p>
+Projects I have gathered on this website are a mix of personal and client work. Some projects are from my student jobs, some are University projects, some of them are projects made from pure joy.
+</p>
+
+<p>
+Every project usually combines multiple softwares.
+</p>
+
+<p>
+I should also note that I personally really enjoy brainstorming and researching. I believe brands can have a successful personality if they research their market well. Every idea should have a goal and a purpose, and I really enjoy finding those.
+</p>
+
+</section>
+
+<section class="About_Section_Personal" id="about_personal">
+
+<h1>Hobbies</h1>
+<p>
+I do tend to have many hobies, I love drawing, I practice it every day. I also love any Arts&Crafts projects, I've just recently started making figurines and earrings from Polymer clay, and It's really fun. I've made Mosaics from ceramics, I've started learning Embroidery, and DIY-ing sketchbooks from recycled paper.
+</p>
+<p>
+I'm a big Football fan, most of the time I talk about it.
+</p>
+<p>
+I also generally just like finding joy in life, I play different sports recreationally, I like to hike, I like cycling, I like running marathons, travelling, working on the garden, and so much more.
+</p>
+
+
+
+
+</section>
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+
+    const sections = document.querySelectorAll(".About_Section, .About_Section_Dark" + ", .About_Section_Personal");
+
+    setTimeout(() => {
+        sections.forEach(section => {
+            section.classList.add("Visible");
+        });
+    }, 100);
+
+});
+
+history.scrollRestoration = "manual";
+window.scrollTo(0, 0);
+</script>
+
+</body>
+</html>
