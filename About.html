@@ -76,12 +76,55 @@ body::before {
 .About_Section {
     margin-top: 19vh;
     padding: 0 15vw 8vh 15vw;
+
+    display: flex;
+    align-items: center;
+    gap: 5vw;
+
     line-height: 2;
     font-size: 18px;
 
     opacity: 0;
     transform: translateY(90px);
-    transition: opacity 0.5s ease-in, transform 0.9s ease;
+    transition: opacity 0.6s ease, transform 0.9s ease;
+}
+.About_Image {
+    flex: none;
+    width: 240px;
+    height: 240px;
+
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease, transform 0.8s ease;
+
+    animation: float 6s ease-in-out infinite;
+}
+
+.About_Image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+
+    border: 4px solid rgb(38, 27, 7);
+
+    box-shadow: 
+        0 15px 35px rgba(0,0,0,0.25),
+        0 5px 15px rgba(0,0,0,0.15);
+}
+
+
+
+@media (max-width: 900px) {
+    .About_Section {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .About_Image {
+        width: 190px;
+        height: 190px;
+    }
 }
 
 .About_Section.Visible {
@@ -135,27 +178,29 @@ body::before {
 
 <section class="About_Section" id="about_light">
 
-<h1>Pozdrav!</h1>
+<div class="About_Image">
+    <img src="Profilna.png.jpg" alt="Amar Zulić">
+</div>
 
-<p>
-My name is Amar Zulić, I am a graphic designer and motion designer based in Ljubljana.
-</p>
+<div>
+    <h1>Zdravo!</h1>
 
-<p>
-I've completed my bachelor's degree in <b>Marketing and Advertizing</b> at the University of Ljubljana, School of Economics, and am currently pursuing a master's degree in <b>Tourism Marketing.</b>
-</p>
+    <p>
+    My name is Amar Zulić, I'm a graphic and motion designer based in Ljubljana.
+    </p>
 
+    <p>
+    I've completed my bachelor's degree in <b>Marketing and Advertizing</b> at the University of Ljubljana, School of Economics, and am currently pursuing a master's degree in <b>Tourism Marketing.</b>
+    </p>
 
+    <p>
+    I like finding opportunities to combine marketing with design.
+    </p>
 
-<p>
-I find ways to combine marketing with design.
-</p>
-
-<p>
-I have worked in many different fields of design, I've done print to digital, 2D to 3D, static to motion, and I am currently exploring Web development and Interactive design. Web design and coding is something that (at least currently) interests me most.
-</p>
-
-
+    <p>
+    I do not currently just focus on one specific field of design, I like to explore and combine different software, styles, and techniques. I like to find new ways to express ideas, and to solve problems.
+    </p>
+</div>
 
 </section>
 
@@ -187,12 +232,12 @@ I should also note that I personally really enjoy brainstorming and researching.
 <p>
 I do tend to have many hobies, I love drawing, I practice it every day. 
 
-I also love any Arts&Crafts projects, I've just recently started making figurines and earrings from Polymer clay, and It's really fun.
+I also love any Arts&Crafts projects, I've just recently started making miniature figures from Polymer clay, and It's really fun.
 
-I've made Mosaics from ceramics, I've started learning Embroidery, and DIY-ing sketchbooks from recycled paper.
+I like making Mosaics from ceramic shards, I've started sketching with Embroidery, and DIY-ing sketchbooks from recycled paper.
 </p>
 <p>
-I'm a big Football fan, most of the time I talk about it.
+I'm a big Football fan, I like watching it and talking about it.
 </p>
 <p>
 I also generally just like finding joy in life, I play different sports recreationally, I like to hike, I like cycling, I like running marathons, travelling, working on the garden, and so much more.
@@ -201,7 +246,7 @@ I also generally just like finding joy in life, I play different sports recreati
 That's generally it! Feel free to contact me for any collaborations, questions, or just to say hi! I am always open to new connections and opportunities.
 </p>
 
-<h2>Ajde čau!</h2>
+<h2>Ajd!</h2>
 
 
 </section>
@@ -221,6 +266,22 @@ document.addEventListener("DOMContentLoaded", function() {
 
 history.scrollRestoration = "manual";
 window.scrollTo(0, 0);
+
+document.addEventListener("DOMContentLoaded", function() {
+
+    const section = document.getElementById("about_light");
+    const image = document.querySelector(".About_Image");
+
+    setTimeout(() => {
+        image.style.opacity = "1";
+        image.style.transform = "translateY(0)";
+    }, 100);
+
+    setTimeout(() => {
+        section.classList.add("Visible");
+    }, 350);
+
+});
 </script>
 
 </body>
