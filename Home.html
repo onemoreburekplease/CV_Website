@@ -303,12 +303,66 @@ body::before {
     font-size: 0.95rem;
 
     transition: all 0.25s ease;
+    
+
+}
+
+.Menu a:nth-child(1):hover {
+    background-color: rgb(243, 0, 0);
+    color: white;
+}
+
+/* 2 */
+.Menu a:nth-child(2):hover {
+    background-color: rgb(255, 85, 0);
+    color: black;
+}
+
+/* 3 */
+.Menu a:nth-child(3):hover {
+    background-color: orange;
+    color: rgb(38, 27, 7);
+}
+
+/* 4 */
+.Menu a:nth-child(4):hover {
+    background-color: #00c853;
+    color: white;
+}
+
+/* 5 */
+.Menu a:nth-child(5):hover {
+    background-color: #2979ff;
+    color: white;
+}
+
+/* 6 */
+.Menu a:nth-child(6):hover {
+    background-color: #aa00ff;
+    color: white;
+}
+
+/* Divider lines between menu links */
+.Menu a:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.9rem;
+}
+
+/* Optional: add spacing above next item */
+.Menu a + a {
+    padding-top: 0.9rem;
+}
+
+@keyframes microShake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-1px); }
+    100% { transform: translateX(0); }
 }
 
 .Menu a:hover {
-    background-color: orange;
-    color: rgb(38, 27, 7);
-
+    animation: microShake 0.35s ease;
 }
 .Projects_Button {
     display: inline-block;
