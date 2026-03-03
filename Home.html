@@ -238,33 +238,56 @@ body::before {
    DROPDOWN MENU
 =========================== */
 
-.Menu {
-    position: absolute;
-    top: 100%;
-    right: 2vw;
+/* ==========================
+   SIDE OVERLAY MENU
+========================== */
 
-    width: 15rem;
-    padding: 1rem 0;
+.Menu {
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 15vw;
+    min-width: 220px;
+    height: 100vh;
 
     background-color: rgb(38, 27, 7);
-    border-radius: 1.2rem;
 
     display: flex;
     flex-direction: column;
-    gap: 0.6rem;
+    justify-content: center;
+    gap: 1rem;
 
-    box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+    padding: 2rem;
 
-    opacity: 0;
-    transform: translateY(-10px);
-    pointer-events: none;
+    transform: translateX(100%);
+    transition: transform 0.4s ease;
 
-    transition: all 0.3s ease;
+    z-index: 2000;
 }
 
+/* Open state */
 .Menu.open {
+    transform: translateX(0);
+}
+
+/* Dark background fade */
+.Menu_Overlay {
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0, 0, 0, 0.5);
+
+    opacity: 0;
+    pointer-events: none;
+
+    transition: opacity 0.3s ease;
+
+    z-index: 1500;
+}
+
+.Menu_Overlay.active {
     opacity: 1;
-    transform: translateY(0);
     pointer-events: auto;
 }
 
@@ -436,6 +459,8 @@ body::before {
         <a href="references.html">References</a>
         <a href="contact.html">Contacts</a>
     </div>
+
+    <div class="Menu_Overlay" id="menuOverlay"></div>
 
 </div>
 
@@ -693,15 +718,17 @@ window.addEventListener("scroll", () => {
 
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
+const overlay = document.getElementById("menuOverlay");
 
 hamburger.addEventListener("click", () => {
     menu.classList.toggle("open");
+    overlay.classList.toggle("active");
 });
 
-document.addEventListener("click", (e) => {
-    if (!hamburger.contains(e.target) && !menu.contains(e.target)) {
-        menu.classList.remove("open");
-    }
+/* Clicking overlay closes menu */
+overlay.addEventListener("click", () => {
+    menu.classList.remove("open");
+    overlay.classList.remove("active");
 });
 
 history.scrollRestoration = "manual";
