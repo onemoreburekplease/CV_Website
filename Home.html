@@ -37,13 +37,13 @@ body::before {
     gap: 4vw;
 
     position: relative;
-    padding: 0 20vw; /* optional: horizontal padding */
+    padding: 0 15vw; /* optional: horizontal padding */
 }
 
 /* Force image to fixed size, so flex layout doesn’t shrink it */
 .Profile_Pic {
     flex: none;           /* don't grow or shrink */
-    width: 250px;         /* fixed width */
+    width: 270px;         /* fixed width */
     height: auto;     
     display: flex;
     justify-content: center;
@@ -66,6 +66,7 @@ body::before {
     transition: opacity 0.8s ease, transform 0.8s ease;
     font-family: monospace;
     color: rgb(3, 28, 8);
+    text-align: left;
 
     /* Move text right if needed */
     transform: translateY(90px); /* default */
@@ -122,11 +123,11 @@ body::before {
         justify-content: center;
 
 
-        border-radius: 35px;
+        border-radius: 27px;
 
         transition: transform 0.3s ease;
 
-        box-shadow: 10px 10px 20px rgba(0,0,0,0.2);
+        box-shadow: -5px 5px 15px rgba(0,0,0,0.2);
     }
 
     .Project_Box:hover {
@@ -142,17 +143,17 @@ body::before {
 }
 
 .Dot{
-    width:10px;
-    height:10px;
+    width:12px;
+    height:12px;
     border-radius:50%;
     background: rgb(211, 216, 156);
     cursor:pointer;
-    transition:0.3s;
+    transition:0.4s;
 }
 
 .Dot.Active{
     background: rgb(18, 66, 56);
-    transform:scale(1.45);
+    transform:scale(1.40);
 }
 .Projects_Container::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
@@ -463,7 +464,7 @@ body::before {
 
 .Scroll_Indicator {
     position: absolute;
-    bottom: 6vh;
+    bottom: 3vh;
     left: 50%;
     transform: translateX(-50%);
     
@@ -472,7 +473,7 @@ body::before {
     opacity: 0.8;
     font-family: monospace;
 
-    animation: bounce 2.1s ease-in-out infinite;
+    animation: bounce 1.8s ease-in-out infinite;
     transition: opacity 0.4s ease;
 }
 
@@ -546,7 +547,7 @@ body::before {
 
 <section class="Projects_Section Fade_Element">
 
-    <h2 style="text-align:left; margin-bottom:10px; margin-left:30px; font-family: monospace;">Recent Projects </h2>
+    <h2 style="text-align:center; margin-bottom:10px; margin-left:30px; font-family: monospace;">Recent Projects </h2>
     <div class="Projects_Container" id="Projects_Container">
 
 
