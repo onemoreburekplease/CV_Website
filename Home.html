@@ -430,6 +430,60 @@ background-position: 0 0;
     box-shadow: 0 10px 20px rgba(0,0,0,0.35);
 }
 
+.Carousel_Button {
+
+    position: absolute;
+    top: 48%;
+    transform: translateY(-50%);
+
+    width: 55px;
+    height: 55px;
+
+    background-color: orange;
+    color: rgb(18, 66, 56);
+
+    border: 2px solid rgb(18, 66, 56);
+    border-radius: 50%;
+
+    font-size: 30px;
+    font-family: monospace;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    cursor: pointer;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+
+    transition: all 0.25s ease;
+
+    z-index: 50;
+}
+
+.Carousel_Button:hover {
+
+    transform: translateY(-50%) scale(1.08);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+}
+
+/* positioning */
+
+.Carousel_Button.Left {
+    left: 3vw;
+}
+
+.Carousel_Button.Right {
+    right: 3vw;
+}
+
+/* allow absolute positioning */
+
+.Projects_Section {
+    position: relative;
+}
+
 .Complex_Grid_Section {
     padding: 6% 4%;
 }
@@ -661,6 +715,11 @@ background-position: 0 0;
 <section class="Projects_Section Fade_Element">
 
     <h2 style="text-align:center; margin-bottom:10px; margin-left:30px; font-family: monospace;">Recent Projects </h2>
+
+        <div class="Carousel_Button Left" id="Prev_Project">‹</div>
+        <div class="Carousel_Button Right" id="Next_Project">›</div>
+
+
     <div class="Projects_Container" id="Projects_Container">
 
 
@@ -889,6 +948,23 @@ window.addEventListener("scroll", () => {
         scrollIndicator.classList.remove("Hidden");
     }
 });
+
+const nextBtn = document.getElementById("Next_Project");
+const prevBtn = document.getElementById("Prev_Project");
+
+function moveCarousel(direction){
+
+    const boxWidth = projectBoxes[0].offsetWidth + 20;
+
+    container.scrollBy({
+        left: direction * boxWidth,
+        behavior: "smooth"
+    });
+
+}
+
+nextBtn.addEventListener("click", () => moveCarousel(1));
+prevBtn.addEventListener("click", () => moveCarousel(-1));
 
 });
 
