@@ -33,6 +33,13 @@ body::before {
 
     position: relative;
     padding: 0 15vw; /* optional: horizontal padding */
+
+    background-image:
+    linear-gradient(rgb(18, 66, 56) 2px, transparent 2px),
+    linear-gradient(90deg, rgb(18, 66, 56) 2px, transparent 2px);
+
+background-size: 40px 40px;
+background-position: 0 0;
 }
 
 /* Force image to fixed size, so flex layout doesn’t shrink it */
@@ -54,17 +61,43 @@ body::before {
 
 /* Intro text */
 .Intro_Text {
-    flex: 1;              /* takes remaining space */
-    opacity: 0;
-    font-size: 15px;
-    transform: translateY(80px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-    font-family: monospace;
-    color: rgb(3, 28, 8);
-    text-align: left;
 
-    /* Move text right if needed */
-    transform: translateY(90px); /* default */
+    flex: 1;
+
+    padding: 26px 40px;
+
+    background-color: orange;
+    color: rgb(38, 27, 7);
+
+    border-radius: 50px;
+
+    border: rgb(13, 57, 44) 2px solid;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+
+    font-family: monospace;
+
+    opacity: 0;
+
+    transform: translateY(80px);
+
+    transition: 
+        opacity 0.8s ease,
+        transform 0.8s ease,
+        box-shadow 0.25s ease;
+
+}
+
+.Intro_Text h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 60px;
+    color: rgb(36, 36, 36);
+}
+
+.Intro_Text p {
+    margin: 0;
+    font-size: 16px;
 }
 
 /* To move text slightly right: */
@@ -151,8 +184,8 @@ body::before {
 }
 
 .Dot.Active{
-    background: rgb(18, 66, 56);
-    transform:scale(1.40);
+    background: rgb(105, 139, 129);
+    transform:scale(1.30);
 }
 .Projects_Container::-webkit-scrollbar {
     display: none; /* Chrome, Safari, Edge */
@@ -467,14 +500,29 @@ body::before {
     bottom: 8vh;
     left: 50%;
     transform: translateX(-50%);
-    
+
+    width: 60px;
+    height: 60px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
     font-size: 32px;
     color: rgb(18, 66, 56);
-    opacity: 0.8;
     font-family: monospace;
+
+    background-color: orange;
+    border-radius: 50%;
+
+    border: rgb(13, 57, 44);
+
+    opacity: 0.99;
 
     animation: bounce 1.5s ease infinite;
     transition: opacity 0.4s ease;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
 }
 
 /* Subtle bounce */
@@ -596,7 +644,7 @@ body::before {
 
     <div class="Intro_Text MoveRight">
         <h1>Amar Zulić</h1>
-        <p>Graphic Designer, Animator, Motion Designer, 3D Artist and Web Developer.
+        <p>Marketing student | Graphic Designer, Animator, Motion Designer, 3D Artist and Web Developer.
         </p>
 
 
@@ -609,7 +657,6 @@ body::before {
 
 </section>
 
-<section class="Fishnet_Separator"></section>
 
 <section class="Projects_Section Fade_Element">
 
