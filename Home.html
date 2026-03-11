@@ -233,7 +233,7 @@ background-position: 0 0;
 
 .Temp_Logo {
     position: absolute;
-    left: 1.1vw;
+    left: 2vw;
     top: 50%;
     transform: translateY(-50%);
 
@@ -255,6 +255,34 @@ background-position: 0 0;
 
     cursor: pointer;
     transition: transform 0.3s ease;
+
+    position: absolute;
+    right: 2vw;
+}
+
+.Header_Title {
+
+    position: absolute;
+    left: 50%;
+    top: 50%;
+
+    transform: translate(-50%, -50%);
+
+    font-family: monospace;
+    font-size: 20px;
+    letter-spacing: 2px;
+
+    color: orange;
+
+    pointer-events: none;
+
+    opacity: 0;
+    transition: opacity 0.35s ease;
+}
+
+/* visible state */
+.Header_Title.Visible {
+    opacity: 1;
 }
 
 .Hamburger:hover {
@@ -433,7 +461,7 @@ background-position: 0 0;
 .Carousel_Button {
 
     position: absolute;
-    top: 48%;
+    top: 45.5%;
     transform: translateY(-50%);
 
     width: 55px;
@@ -534,7 +562,7 @@ background-position: 0 0;
 
 .Box:hover {
     transform: translateY(-4px);
-    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+    box-shadow: 3px 12px 25px rgba(0,0,0,0.35);
 }
 
 .Complex_Grid_Section.Fade_Element {
@@ -653,6 +681,8 @@ background-position: 0 0;
     box-shadow: 0 12px 25px rgba(0,0,0,0.35);
 
     backdrop-filter: blur(4px);
+
+    cursor: pointer;
 }
 
     </style>
@@ -666,6 +696,9 @@ background-position: 0 0;
 <div class="Header_Box">
 
     <div class="Temp_Logo"></div>
+
+    <div class="Header_Title">Amar Zulić</div>
+
 
     <div class="Hamburger" id="hamburger">
         <div></div>
@@ -965,6 +998,21 @@ function moveCarousel(direction){
 
 nextBtn.addEventListener("click", () => moveCarousel(1));
 prevBtn.addEventListener("click", () => moveCarousel(-1));
+
+const headerTitle = document.querySelector(".Header_Title");
+const introSection = document.querySelector(".Intro_Section");
+
+window.addEventListener("scroll", () => {
+
+    const triggerPoint = introSection.offsetHeight * 0.7;
+
+    if (window.scrollY > triggerPoint) {
+        headerTitle.classList.add("Visible");
+    } else {
+        headerTitle.classList.remove("Visible");
+    }
+
+});
 
 });
 
