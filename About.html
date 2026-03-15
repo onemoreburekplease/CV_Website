@@ -38,6 +38,7 @@ body {
     padding: 0.6rem 1.4rem;
 
     background-color: orange;
+    stroke: rgb(18, 66, 56) 2px;
     color: rgb(38, 27, 7);
 
     text-decoration: none;
@@ -47,27 +48,67 @@ body {
     border-radius: 2rem;
 
     transition: all 0.25s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.Header_Box a {
+    display: inline-block;
+    padding: 0.6rem 1.4rem;
+    background-color: orange;
+    color: rgb(38, 27, 7);
+    text-decoration: none;
+    font-size: 0.95rem;
+    font-family: monospace;
+    border-radius: 2rem;
+
+    position: relative;
+    overflow: hidden;
+
+    transition: all 0.25s ease;
+}
+
+.Header_Box a::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+
+    background: linear-gradient(
+        to right,
+        rgba(255,255,255,0) 0%,
+        rgba(252, 255, 174, 0.9) 45%,
+        rgba(255,255,255,0) 55%,
+        rgba(255,255,255,0) 100%
+    );
+    transform: translateX(-100%);
+    transition: transform 0.55s ease;
+}
+
+.Header_Box a:hover::after {
+    transform: translateX(100%);
 }
 
 /* Hover effect (inverse like menu) */
 .Header_Box a:hover {
-    background-color: rgb(60, 39, 29);
-    color: orange;
+    scale: 1.02;
+
 }
 /* =====================
    ABOUT SECTION
 ===================== */
 
 .About_Section {
-    margin-top: 19vh;
+    margin-top: 13vh;
     padding: 0 15vw 8vh 15vw;
 
     display: flex;
     align-items: center;
-    gap: 5vw;
+    gap: 8vw;
 
     line-height: 2;
-    font-size: 18px;
+    font-size: 17px;
 
     opacity: 0;
     transform: translateY(90px);
@@ -75,12 +116,14 @@ body {
 }
 .About_Image {
     flex: none;
-    width: 240px;
-    height: 240px;
+    width: 270px;
+    height: 270px;
 
     opacity: 0;
     transform: translateY(40px);
     transition: opacity 0.8s ease, transform 0.8s ease;
+
+    stroke: rgb(18, 66, 56) 2px solid;
 
     animation: float 6s ease-in-out infinite;
 }
@@ -91,11 +134,23 @@ body {
     object-fit: cover;
     border-radius: 50%;
 
-    border: 4px solid rgb(38, 27, 7);
-
     box-shadow: 
         0 15px 35px rgba(0,0,0,0.25),
         0 5px 15px rgba(0,0,0,0.15);
+
+        transition: transform 1s ease;
+
+    
+}
+
+.About_Image img:hover {
+    transform: scale(1.05);
+    box-shadow: 
+        0 0px 45px rgba(221, 255, 54, 0.95),
+        0 0px 45px rgba(255, 143, 23, 0.95);
+
+
+    
 }
 
 
@@ -121,7 +176,7 @@ body {
     margin-top: 3vh;
     padding: 2vh 15vw 15vh 15vw;
     line-height: 2;
-    font-size: 18px;
+    font-size: 17px;
     background-color: rgb(18, 66, 56);
     color: orange;
 
@@ -139,7 +194,7 @@ body {
     margin-top: 3vh;
     padding: 2vh 15vw 10vh 15vw;
     line-height: 2;
-    font-size: 18px;
+    font-size: 17px;
     color: rgb(38, 27, 7);
 
     opacity: 0;
@@ -150,6 +205,71 @@ body {
 .About_Section_Personal.Visible {
     opacity: 1;
     transform: translateY(0);
+}
+
+ .Fishnet_Separator_Bottom {
+    height: 35vh;
+
+    background-image:
+        linear-gradient(rgb(18, 66, 56) 2px, transparent 2px),
+        linear-gradient(90deg, rgb(18, 66, 56) 2px, transparent 2px);
+
+    background-size: 40px 40px;
+    background-position: 0 0;
+
+    opacity: 0.8;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    
+}
+
+.Fishnet_Button {
+
+    padding: 16px 34px;
+
+    background-color: orange;
+    color: rgb(38, 27, 7);
+
+    font-family: monospace;
+    text-decoration: none;
+    font-size: 18px;
+
+    border-radius: 40px;
+
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+
+    transition: all 0.25s ease;
+
+    border: rgb(13, 57, 44) 2px solid;
+    
+}
+
+.Fishnet_Button:hover {
+
+    transform: translateY(-3px);
+
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+
+    backdrop-filter: blur(4px);
+
+    cursor: pointer;
+}
+
+.hello {
+    font-size: 10.5rem;
+    margin-bottom: 2rem;
+}
+
+.About_Separator {
+    width: 20%;
+    align-content: center;
+    height: 2px;
+    background: orange;
+    border: none;
+    margin: 2rem auto;
 }
 
 </style>
@@ -168,23 +288,21 @@ body {
 </div>
 
 <div>
-    <h1>Merhaba</h1>
+    <h1 class="hello">Hello!</h1>
 
     <p>
-    My name is Amar Zulić, I'm a graphic and motion designer based in Ljubljana.
+    My name is Amar Zulić, I'm a graphic designer and motion designer from Ljubljana, Slovenia.
+    </p>
+
+    <p> 
+    I'm currently a 25 year old student finishing my studies.
     </p>
 
     <p>
-    I've completed my bachelor's degree in <b>Marketing and Advertizing</b> at the University of Ljubljana, School of Economics, and am currently pursuing a master's degree in <b>Tourism Marketing.</b>
+    I have completed my Bachelor's degree in <b>Marketing</b> at the University of Ljubljana, School of Economics, and am currently pursuing a Master's degree in <b>Tourism Marketing.</b>
     </p>
 
-    <p>
-    I like finding opportunities to combine marketing with design.
-    </p>
 
-    <p>
-    I do not currently just focus on one specific field of design, I like to explore and combine different software, styles, and techniques. I like to find new ways to express ideas, and to solve problems.
-    </p>
 </div>
 
 </section>
@@ -194,19 +312,31 @@ body {
 <h1>Technical Info</h1>
 
 <p>
-Software I use: Adobe Photoshop, Adobe Illustrator, Adobe After Effects, Adobe Premiere Pro, Adobe InDesign, Blender, Figma, coding languages (HTML, CSS, JavaScript), and more.
+I have been drawing since childhood. I tend to practice every day, even now. Being a strong hobby of mine, drawing sparked my interest in other forms of visual creativity, so I started teaching myself how to create digitally. I started experimenting with Photoshop about 10 years ago, which I used to genereally create custom gifts for friends and family members. Later on, I started learning other software, eventually moving to animation, 3D design, and motion design. My last couple of jobs also thought me web design, so I've coded this entire website myself, and I really enjoyed the process.
 </p>
 
-<p>
-Projects I have gathered on this website are a mix of personal and client work. Some projects are from my student jobs, some are University projects, some of them are projects made from pure joy.
-</p>
 
 <p>
-Every project usually combines multiple softwares.
+<b>I am extremely interested in everything</b>. I love 3D design as much as I like, for example, coding in Android studio. Some fields of design I realitically know more, such as motion design in After Effects or vector design in Illustrator, but I am always looking for opportunities to learn and explore elsewhere.
 </p>
 
+
+
+ <div class="About_Separator"></div>
+
 <p>
-I should also note that I personally really enjoy brainstorming and researching. I believe brands can have a successful personality if they research their market well. Every idea should have a goal and a purpose, and I really enjoy finding those.
+Software I use: Adobe Photoshop, Adobe Illustrator, Adobe After Effects, Adobe Premiere Pro, Adobe InDesign, Blender3D, Figma, Unity, coding languages (HTML, CSS, JavaScript), and more.
+</p>
+
+
+
+<p>
+Projects I have gathered on this website are a mix of personal and client work. Some projects are from my student jobs, some are University projects, and the rest are generally projects made from pure joy.
+</p>
+
+ <div class="About_Separator"></div>
+<p>
+I should also note that I personally really enjoy brainstorming and researching. I believe studying marketing really enhances some aspects of design, such as understanding market conditions, understanding the target audience, benchmarking the competition, conducting market research, measuring the results, and much more.
 </p>
 
 </section>
@@ -215,11 +345,9 @@ I should also note that I personally really enjoy brainstorming and researching.
 
 <h1>Hobbies</h1>
 <p>
-I do tend to have many hobies, I love drawing, I practice it every day. 
+I do tend to have many hobies, as said, I love drawing and it is my favorite past-time hobby. 
 
-I also love any Arts&Crafts projects, I've just recently started making miniature figures from Polymer clay, and It's really fun.
-
-I like making Mosaics from ceramic shards, I've started sketching with Embroidery, and DIY-ing sketchbooks from recycled paper.
+I also love Arts&Crafts projects, I've just recently started making miniature figures from Polymer clay. I also like making Mosaics from ceramic shards, I've started Embroiding pictures on clothing and so on.
 </p>
 <p>
 I'm a big Football fan, I like watching it and talking about it.
@@ -228,9 +356,17 @@ I'm a big Football fan, I like watching it and talking about it.
 I also generally just like finding joy in life, I play different sports recreationally, I like to hike, I like cycling, I like running marathons, travelling, working on the garden, and so much more.
 </p>
 <p>
-That's generally it! Feel free to contact me for any collaborations, questions, or just to say hi! I am always open to new connections and opportunities.
+That's generally it! Feel free to contact me for any collaborations, questions, or just to say hi! I am always open to meeting new people. For a project or profesionally. Come and say hi!
 </p>
 
+
+</section>
+
+<section class="Fishnet_Separator_Bottom">
+
+    <a class="Fishnet_Button">Instagram</a>
+    <a class="Fishnet_Button">Email</a>
+    <a class="Fishnet_Button">LinkedIn</a>
 
 </section>
 
