@@ -111,7 +111,7 @@ background-position: 0 0;
     }
 
     .Projects_Section {
-        padding: 3% 2% 2% 2%;
+        padding: 4% 2% 2% 2%;
         opacity: 0;
         transform: translateY(25px);
         transition: opacity 1s ease, transform 1s ease;
@@ -124,7 +124,7 @@ background-position: 0 0;
 
     .Projects_Container {
         display: flex;
-        gap: 2vw;
+        gap: 2.5vw;
 
         overflow-x: auto;
         scroll-behavior: smooth;
@@ -152,8 +152,9 @@ background-position: 0 0;
         align-items: center;
         justify-content: center;
 
-
         border-radius: 27px;
+
+        overflow: hidden;
 
         transition: transform 0.3s ease;
 
@@ -760,12 +761,16 @@ background-position: 0 0;
 
 
 
-        <div class="Project_Box">Project 1</div>
+        <div class="Project_Box">
+            <img src="Website_Thumbnail.svg" alt="Project 1" style="max-width: 100%; max-height: 100%; object-fit: contain; transform: scale(1.01);">
+        </div>
         <div class="Project_Box">Project 2</div>
         <div class="Project_Box">Project 3</div>
         <div class="Project_Box">Project 4</div>
 
-        <div class="Project_Box">Project 1</div>
+         <div class="Project_Box">
+            <img src="Website_Thumbnail.svg" alt="Project 1" style="max-width: 100%; max-height: 100%; object-fit: contain; transform: scale(1.01);">
+        </div>
         <div class="Project_Box">Project 2</div>
         <div class="Project_Box">Project 3</div>
         <div class="Project_Box">Project 4</div>
@@ -841,13 +846,12 @@ document.addEventListener("DOMContentLoaded", function () {
     /* --------------------------
        Duplicate items for infinite scroll
     ---------------------------*/
-    const originalItems = projectBoxes.slice(0, itemCount);
-    originalItems.forEach(item => {
-        const cloneStart = item.cloneNode(true);
-        const cloneEnd = item.cloneNode(true);
-        container.insertBefore(cloneStart, container.firstChild);
-        container.appendChild(cloneEnd);
-    });
+const originalItems = projectBoxes.slice(0, itemCount);
+
+originalItems.forEach(item => {
+    const clone = item.cloneNode(true);
+    container.appendChild(clone);
+});
 
     /* Update projectBoxes after cloning */
     projectBoxes = Array.from(container.children);
