@@ -111,7 +111,7 @@ background-position: 0 0;
     }
 
     .Projects_Section {
-        padding: 4% 2% 2% 2%;
+        padding: 5% 2% 2% 2%;
         opacity: 0;
         transform: translateY(25px);
         transition: opacity 1s ease, transform 1s ease;
@@ -185,7 +185,7 @@ background-position: 0 0;
 }
 
 .Dot.Active{
-    background: rgb(105, 139, 129);
+    background: rgb(18, 66, 56);
     transform:scale(1.30);
 }
 .Projects_Container::-webkit-scrollbar {
@@ -689,6 +689,56 @@ background-position: 0 0;
     cursor: pointer;
 }
 
+.Recent_Projects {
+    display: inline-block;
+
+    font-family: monospace;
+    font-size: 1.7rem;
+    letter-spacing: 1px;
+
+    background-color: orange;
+    color: rgb(13, 57, 44);
+
+    padding: 10px 22px;
+    border-radius: 999px;
+
+    border: 2px solid rgb(18, 66, 56);
+
+    margin-bottom: 25px;
+
+    box-shadow: -3px 4px 0 rgb(18, 66, 56); /* subtle graphic offset */
+}
+
+#Project_Tooltip {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    padding: 20px 16px;
+
+    background-color: orange;
+    color: rgb(36, 36, 36);
+
+    font-family: monospace;
+    font-size: 15px;
+
+    border-radius: 20px;
+    border: 2px solid rgb(18, 66, 56);
+
+    pointer-events: none; /* SUPER IMPORTANT */
+
+    opacity: 0;
+    transform: translate(10px, 10px) scale(0.95);
+
+    transition: 
+        opacity 0.3s ease,
+        transform 0.5s ease;
+
+    z-index: 9999;
+
+    box-shadow: -3px 4px 0 rgb(18, 66, 56);
+}  
+
     </style>
 
 </head>
@@ -751,7 +801,7 @@ background-position: 0 0;
 
 <section class="Projects_Section Fade_Element">
 
-    <h2 style="text-align:center; margin-bottom:10px; margin-left:30px; font-family: monospace;">Recent Projects </h2>
+    <p class="Recent_Projects">Recent Projects</p>
 
         <div class="Carousel_Button Left" id="Prev_Project">‹</div>
         <div class="Carousel_Button Right" id="Next_Project">›</div>
@@ -761,22 +811,26 @@ background-position: 0 0;
 
 
 
-        <div class="Project_Box">
+        <div class="Project_Box" data-title="CV Website Design">
             <img src="Website_Thumbnail.svg" alt="Project 1" style="max-width: 100%; max-height: 100%; object-fit: contain; transform: scale(1.01);">
         </div>
-        <div class="Project_Box">
+        <div class="Project_Box" data-title="Tourism App">
             <img src="SDIT_Thumbnail.png" alt="Project 1" style="max-width: 100%; max-height: 100%; object-fit: contain; transform: scale(1.00);">
         </div>
-        <div class="Project_Box">Project 3</div>
+         <div class="Project_Box" data-title="Samo Jako Animation">
+            <img src="Samo_Jako_Thumbnail.png" alt="Project 1" style="max-width: 100%; max-height: 100%; object-fit: cover; transform: scale(1.1);">
+        </div>
         <div class="Project_Box">Project 4</div>
 
-         <div class="Project_Box">
+         <div class="Project_Box" data-title="CV Website Design">
             <img src="Website_Thumbnail.svg" alt="Project 1" style="max-width: 100%; max-height: 100%; object-fit: contain; transform: scale(1.01);">
         </div>
-        <div class="Project_Box">
+        <div class="Project_Box" data-title="Tourism App">
             <img src="SDIT_Thumbnail.png" alt="Project 1" style="max-width: 100%; max-height: 100%; object-fit: contain; transform: scale(1.00);">
         </div>
-        <div class="Project_Box">Project 3</div>
+         <div class="Project_Box" data-title="Samo Jako Animation">
+            <img src="Samo_Jako_Thumbnail.png" alt="Project 1" style="max-width: 100%; max-height: 100%; object-fit: cover; transform: scale(1.1);">
+        </div>
         <div class="Project_Box">Project 4</div>
 
     </div>
@@ -824,12 +878,15 @@ background-position: 0 0;
 
 </section>
 
+<div id="Project_Tooltip"></div>
+
 <script>
 document.addEventListener("DOMContentLoaded", function () {
 
     const container = document.getElementById("Projects_Container");
     const fadeElements = document.querySelectorAll('.Fade_Element');
     const dotsContainer = document.getElementById("Carousel_Dots");
+    const tooltip = document.getElementById("Project_Tooltip");
 
     /* --------------------------
        Intro text fade-in
@@ -845,19 +902,18 @@ document.addEventListener("DOMContentLoaded", function () {
        Original project boxes
     ---------------------------*/
     let projectBoxes = Array.from(container.children);
-    const itemCount = projectBoxes.length / 2; // original projects count
+    const itemCount = projectBoxes.length / 2;
 
     /* --------------------------
        Duplicate items for infinite scroll
     ---------------------------*/
-const originalItems = projectBoxes.slice(0, itemCount);
+    const originalItems = projectBoxes.slice(0, itemCount);
 
-originalItems.forEach(item => {
-    const clone = item.cloneNode(true);
-    container.appendChild(clone);
-});
+    originalItems.forEach(item => {
+        const clone = item.cloneNode(true);
+        container.appendChild(clone);
+    });
 
-    /* Update projectBoxes after cloning */
     projectBoxes = Array.from(container.children);
 
     /* --------------------------
@@ -869,7 +925,7 @@ originalItems.forEach(item => {
         dot.classList.add("Dot");
 
         dot.addEventListener("click", () => {
-            const boxWidth = projectBoxes[0].offsetWidth + 10;
+            const boxWidth = projectBoxes[0].offsetWidth + 20;
             container.scrollTo({
                 left: (i + itemCount) * boxWidth,
                 behavior: "smooth"
@@ -880,34 +936,27 @@ originalItems.forEach(item => {
         dots.push(dot);
     }
 
-    /* --------------------------
-       Update active dot
-    ---------------------------*/
-function updateDots(){
-    const boxWidth = projectBoxes[0].offsetWidth + 20;
+    function updateDots(){
+        const boxWidth = projectBoxes[0].offsetWidth + 20;
+        const offset = boxWidth * 0.9;
 
-    const offset = boxWidth * 0.9; // 30% into the slide
+        let index = Math.floor((container.scrollLeft + offset) / boxWidth);
+        index = (index % itemCount + itemCount) % itemCount;
 
-    let index = Math.floor((container.scrollLeft + offset) / boxWidth);
-
-    index = (index % itemCount + itemCount) % itemCount;
-
-    dots.forEach(dot => dot.classList.remove("Active"));
-
-    if(dots[index]) dots[index].classList.add("Active");
-}
+        dots.forEach(dot => dot.classList.remove("Active"));
+        if(dots[index]) dots[index].classList.add("Active");
+    }
 
     /* --------------------------
-       Fade-in observer for sections
+       Fade-in observer
     ---------------------------*/
     const observer = new IntersectionObserver(entries => {
         entries.forEach(entry => {
             if(entry.isIntersecting){
                 entry.target.classList.add('Visible');
 
-                /* Initialize carousel AFTER fade-in */
                 const boxWidth = projectBoxes[0].offsetWidth + 20;
-                container.scrollLeft = itemCount * boxWidth;     // start on first project
+                container.scrollLeft = itemCount * boxWidth;
                 updateDots();
             }
         });
@@ -916,117 +965,143 @@ function updateDots(){
     fadeElements.forEach(el => observer.observe(el));
 
     /* --------------------------
-       Infinite scroll logic
+       Infinite scroll
     ---------------------------*/
     container.addEventListener("scroll", () => {
 
-    const boxWidth = projectBoxes[0].offsetWidth + 20;
-    const maxScroll = container.scrollWidth - container.clientWidth;
+        const boxWidth = projectBoxes[0].offsetWidth + 20;
+        const maxScroll = container.scrollWidth - container.clientWidth;
 
-    if(container.scrollLeft >= maxScroll - 5){
-        container.scrollLeft = itemCount * boxWidth;
-    }
+        if(container.scrollLeft >= maxScroll - 5){
+            container.scrollLeft = itemCount * boxWidth;
+        }
 
-    if(container.scrollLeft <= 5){
-        container.scrollLeft = itemCount * boxWidth;
-    }
+        if(container.scrollLeft <= 5){
+            container.scrollLeft = itemCount * boxWidth;
+        }
 
-    updateDots();
-
+        updateDots();
     });
 
-/* --------------------------
-   Precise Drag Support
----------------------------*/
+    /* --------------------------
+       Drag support
+    ---------------------------*/
+    let isDragging = false;
+    let startX = 0;
+    let scrollStart = 0;
 
-let isDragging = false;
-let startX = 0;
-let scrollStart = 0;
-
-container.addEventListener("mousedown", (e) => {
-    isDragging = true;
-    startX = e.clientX;
-    scrollStart = container.scrollLeft;
-    container.style.scrollBehavior = "auto"; // disable smooth scroll while dragging
-});
-
-container.addEventListener("mouseup", () => {
-    isDragging = false;
-    container.style.scrollBehavior = "smooth"; // restore smooth scroll
-});
-
-container.addEventListener("mouseleave", () => {
-    isDragging = false;
-    container.style.scrollBehavior = "smooth";
-});
-
-container.addEventListener("mousemove", (e) => {
-    if (!isDragging) return;
-
-    const dx = e.clientX - startX;
-    container.scrollLeft = scrollStart - dx;
-});
-
-
-
-/* --------------------------
-   Play sound on first interaction
----------------------------*/
-
-/* const sound = new Audio("Miki_Milane.mp3");
-sound.volume = 0.1;
-
-window.addEventListener("pointerdown", function () {
-
-    sound.currentTime = 0;
-    sound.play();
-
-}, { once: true }); */
-
-const scrollIndicator = document.querySelector(".Scroll_Indicator");
-
-window.addEventListener("scroll", () => {
-    if (window.scrollY > 50) {
-        scrollIndicator.classList.add("Hidden");
-    } else {
-        scrollIndicator.classList.remove("Hidden");
-    }
-});
-
-const nextBtn = document.getElementById("Next_Project");
-const prevBtn = document.getElementById("Prev_Project");
-
-function moveCarousel(direction){
-
-    const boxWidth = projectBoxes[0].offsetWidth + 20;
-
-    container.scrollBy({
-        left: direction * boxWidth,
-        behavior: "smooth"
+    container.addEventListener("mousedown", (e) => {
+        isDragging = true;
+        startX = e.clientX;
+        scrollStart = container.scrollLeft;
+        container.style.scrollBehavior = "auto";
     });
 
-}
+    container.addEventListener("mouseup", () => {
+        isDragging = false;
+        container.style.scrollBehavior = "smooth";
+    });
 
-nextBtn.addEventListener("click", () => moveCarousel(1));
-prevBtn.addEventListener("click", () => moveCarousel(-1));
+    container.addEventListener("mouseleave", () => {
+        isDragging = false;
+        container.style.scrollBehavior = "smooth";
+    });
 
-const headerTitle = document.querySelector(".Header_Title");
-const introSection = document.querySelector(".Intro_Section");
+    container.addEventListener("mousemove", (e) => {
+        if (!isDragging) return;
 
-window.addEventListener("scroll", () => {
+        const dx = e.clientX - startX;
+        container.scrollLeft = scrollStart - dx;
+    });
 
-    const triggerPoint = introSection.offsetHeight * 0.7;
+    /* --------------------------
+       Tooltip (WORKING VERSION)
+    ---------------------------*/
 
-    if (window.scrollY > triggerPoint) {
-        headerTitle.classList.add("Visible");
-    } else {
-        headerTitle.classList.remove("Visible");
+    let x = 0, y = 0;
+    let targetX = 0, targetY = 0;
+
+    container.addEventListener("mousemove", (e) => {
+
+        targetX = e.clientX + 15;
+        targetY = e.clientY + 15;
+
+        const project = e.target.closest(".Project_Box");
+
+        if (project && project.dataset.title) {
+            tooltip.textContent = project.dataset.title;
+            tooltip.style.opacity = "1";
+            tooltip.style.transform = "scale(1)";
+        } else {
+            tooltip.style.opacity = "0";
+        }
+    });
+
+    function animateTooltip(){
+        x += (targetX - x) * 0.15;
+        y += (targetY - y) * 0.15;
+
+        tooltip.style.left = x + "px";
+        tooltip.style.top = y + "px";
+
+        requestAnimationFrame(animateTooltip);
     }
 
-});
+    animateTooltip();
+
+    /* --------------------------
+       Scroll indicator
+    ---------------------------*/
+    const scrollIndicator = document.querySelector(".Scroll_Indicator");
+
+    window.addEventListener("scroll", () => {
+        if (window.scrollY > 50) {
+            scrollIndicator.classList.add("Hidden");
+        } else {
+            scrollIndicator.classList.remove("Hidden");
+        }
+    });
+
+    /* --------------------------
+       Carousel buttons
+    ---------------------------*/
+    const nextBtn = document.getElementById("Next_Project");
+    const prevBtn = document.getElementById("Prev_Project");
+
+    function moveCarousel(direction){
+        const boxWidth = projectBoxes[0].offsetWidth + 20;
+
+        container.scrollBy({
+            left: direction * boxWidth,
+            behavior: "smooth"
+        });
+    }
+
+    nextBtn.addEventListener("click", () => moveCarousel(1));
+    prevBtn.addEventListener("click", () => moveCarousel(-1));
+
+    /* --------------------------
+       Header title fade
+    ---------------------------*/
+    const headerTitle = document.querySelector(".Header_Title");
+    const introSection = document.querySelector(".Intro_Section");
+
+    window.addEventListener("scroll", () => {
+        const triggerPoint = introSection.offsetHeight * 0.7;
+
+        if (window.scrollY > triggerPoint) {
+            headerTitle.classList.add("Visible");
+        } else {
+            headerTitle.classList.remove("Visible");
+        }
+    });
 
 });
 
+
+/* --------------------------
+   Menu toggle (outside DOMContentLoaded)
+---------------------------*/
 const hamburger = document.getElementById("hamburger");
 const menu = document.getElementById("menu");
 const overlay = document.getElementById("menuOverlay");
@@ -1036,14 +1111,15 @@ hamburger.addEventListener("click", () => {
     overlay.classList.toggle("active");
 });
 
-/* Clicking overlay closes menu */
 overlay.addEventListener("click", () => {
     menu.classList.remove("open");
     overlay.classList.remove("active");
 });
 
+/* Reset scroll on refresh */
 history.scrollRestoration = "manual";
 window.scrollTo(0, 0);
 </script>
+
 
 </body>
