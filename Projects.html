@@ -64,7 +64,7 @@ body {
 }
 
  .Fishnet_Separator_Top {
-    height: 35vh;
+    height: 25.9vh;
 
     background-image:
         linear-gradient(rgb(18, 66, 56) 2px, transparent 2px),
@@ -73,7 +73,7 @@ body {
     background-size: 40px 40px;
     background-position: 0 0;
 
-    opacity: 0.8;
+    opacity: 1;
 
     display: flex;
     justify-content: center;
@@ -105,36 +105,25 @@ body {
 
 .Fishnet_Button_Top {
 
-    padding: 16px 34px;
+    padding: 14px 38px;
 
-    background-color: #00c853;
-    color: black;
+    background-color: orange;
+    color: rgb(53, 46, 33);
 
     font-family: monospace;
-    text-decoration: none;
-    font-size: 30px;
+    font-size: 20px;
+    font-weight: bold;
 
-    border-radius: 40px;
+    box-shadow: 0 5px 0 rgb(13, 57, 44);
 
-    box-shadow: 0 6px 0 rgb(13, 57, 44);
+    border-radius: 80px;
 
-    transition: all 0.25s ease;
+    transition: all 0.3s ease;
 
-    margin-top: 10vh;
+    margin-top: 11vh;
 
     border: rgb(13, 57, 44) 2px solid;
     
-}
-
-.Fishnet_Button_Top:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-
-    backdrop-filter: blur(4px);
-
-    cursor: inherit;
 }
 
 .Fishnet_Button:hover {
@@ -152,8 +141,8 @@ body {
 
 .Grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 3.5vw;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.7vw;
   padding: 3vw;
 }
 
@@ -166,6 +155,7 @@ body {
 
   cursor: pointer;
   display: block;
+  overflow: hidden;
 
   border: rgb(18, 66, 56) 2px solid;
 
@@ -175,10 +165,17 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
+.Grid_Card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+
+}
 /* Hover = lifted */
 .Grid_Card:hover {
   transform: translateY(-6px); /* moves UP */
-  box-shadow: 0 10px 0 rgb(13, 57, 44);
+  box-shadow: 0 12px 0 rgb(13, 57, 44);
 }
 
 .Grid_Card:active {
@@ -359,16 +356,27 @@ body {
 </div>
 
 <section class="Fishnet_Separator_Top"> 
-    <a class="Fishnet_Button_Top">All Projects</a>
+    <a class="Fishnet_Button_Top">Click on a project to view details</a>
 </section>
 
 <div class="Grid">
-  <a href="#" class="Grid_Card"></a>
-  <a href="#" class="Grid_Card"></a>
-  <a href="#" class="Grid_Card"></a>
-  <a href="#" class="Grid_Card"></a>
-  <a href="#" class="Grid_Card"></a>
-  <a href="#" class="Grid_Card"></a>
+  <a href="#" class="Grid_Card">
+    <img src="SDIT_Thumbnail.png" alt="Tourism_Uni_App" 
+    style="width:100%; height:100%; object-fit: cover;"></a>
+
+  <a href="#" class="Grid_Card">
+    <img src="Website_Thumbnail.svg" alt="Tourism_Uni_App" 
+    style="width:100%; height:100%; object-fit: cover;"></a>
+
+  <a href="#" class="Grid_Card">
+    <img src="Samo_Jako_Thumbnail.png" alt="Tourism_Uni_App" 
+    style="width:100%; height:100%; object-fit: cover;"></a>
+
+  <a href="#" class="Grid_Card">
+    <img src="Nilo_Series_2.png" alt="Tourism_Uni_App" 
+    style="width:100%; height:100%; object-fit: cover;"></a>
+
+    
 </div>
 
 <section class="Fishnet_Separator_Bottom">
