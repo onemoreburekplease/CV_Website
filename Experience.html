@@ -255,8 +255,8 @@ body {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
 
-    gap: 2rem;
-    height: 60vh;
+    gap: 3rem;
+    height: 120vh;
 }
 
 /* BOX STYLE */
@@ -264,8 +264,8 @@ body {
     background: linear-gradient(135deg, rgb(155, 235, 252), rgb(160, 240, 255));
     color: rgb(96, 96, 96);
 
-    padding: 3rem;
-    border: rgb(13, 57, 44) 2px solid;
+    padding: 4rem;
+    border: rgb(29, 163, 155) 2px solid;
 
     display: flex;
     flex-direction: column;
@@ -293,14 +293,14 @@ body {
 .Grid_Box h1 {
     font-family: monospace;
     font-size: 3.8rem;
-    margin: 0 0 0.7rem 0;
+    margin: 0.2rem 0 0.9rem 0;
     color: rgb(32, 11, 56);
 }
 
 .Grid_Box h3 {
     font-family: monospace;
-    font-size: 1.7rem;
-    margin: 0.5rem 0 0.5rem 0;
+    font-size: 1.8rem;
+    margin: 0.7rem 0 0.9rem 0;
     opacity: 1;
     color: rgb(38, 27, 7);
 }
@@ -308,7 +308,7 @@ body {
 .Grid_Box h2 {
     font-family: monospace;
     font-size: 1rem;
-    margin: 0.8rem 0 0.9rem 0.4rem;
+    margin: 0.3rem 0 0.9rem 0.7rem;
     color: rgb(41, 30, 70);
 }
 
@@ -324,7 +324,7 @@ body {
     height: 2px;
     background-color: rgb(12, 12, 12);
     margin: 1rem 0;
-    width: 60%;
+    width: 30%;
 }
 
 /* INITIAL STATE (hidden) */
@@ -355,6 +355,30 @@ body {
     background-position: 0 0;
 
     opacity: 1;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.Fishnet_Button_Top {
+    
+    padding: 16px 34px;
+
+    background-color: rgb(29, 66, 148);
+    color: rgb(255, 255, 255);
+
+    font-family: monospace;
+    text-decoration: none;
+    font-size: 1.9rem;
+
+    border-radius: 40px;
+
+    box-shadow: 0 6px 0px rgb(13, 57, 44);
+
+    transition: all 0.25s ease;
+
+    border: rgb(13, 57, 44) 2px solid;
 }
 </style>
 
@@ -379,7 +403,10 @@ body {
     <div class="Menu_Overlay" id="menuOverlay"></div>   
 </div>
 
-<section class="Fishnet_Separator_Top"> </section>
+<section class="Fishnet_Separator_Top"> 
+     <a class="Fishnet_Button_Top">Where I worked and gained experience</a>
+</section>
+
 
 <section class="Grid_Section">
 
@@ -390,7 +417,7 @@ body {
             <h1>FORA d.o.o.</h1>
             <div class="Divider"></div>
             
-            <h3>Graphic Design and App development</h3>
+            <h3>Graphic Design and Web development</h3>
             <h2>(2024 - current)</h2>
 
             <p><b>FORA</b> is an <b>IT company</b> that develops streaming platforms. Some of its customers include Donald Trump (Truth+), T2 (T2ToGo), UAE (Rotana) and many more.</p>
@@ -412,26 +439,33 @@ body {
                         
             <p>My job at the Ministry was a pleasure to work at. It was very diversified, involving brainstorming and creating campaigns from the concept to the final execution. </p>
                 
-            <p>Campaigns had to have a specific identity and feel. Design was sometimes <b>print based</b>, leading me to create broschures, posters, huge stickers and even whole billboards.</p>
+            <p>Campaigns had to have a specific identity and feel. Design was usually <b>print based</b>, leading me to create broschures, posters, huge stickers and even whole billboards.</p>
 
-            <p>I've also worked on digital design, creating social media posts, animations, collaborations with other RS institutions and much more.</p>
+            <p>I've also worked on <b>digital design</b>, creating social media posts, animations, collaborations with other RS institutions and much more.</p>
         </div>
 
         <!-- RIGHT BOTTOM -->
         <div class="Grid_Box">
-            <h1>Main Title</h1>
+            <h1>Sport Center Dolgi Most</h1>
             <div class="Divider"></div>
-            <h3>Subtitle</h3>
+            <h3>Reception and Graphic Design</h3>
 
-            <p>Body text goes here...</p>
+            <p>I worked weekends at my local sports center, where I live near. Most of the time I worked reception. I met alot of people, started communicating profesionally. I have tons of experience working under pressure and keeping calm in turbulent environments.</p>
+
+            <p>Working there really made my communication skills better. I express myself and my ideas clearly and honestly, while understanding everybody around me.</p>
+
+            <p>Sometimes I would help with graphic design projects, creating flyers and postersfor events.</p>
+
         </div>
 
                 <div class="Grid_Box">
-            <h1>Main Title</h1>
+            <h1>University Projects</h1>
             <div class="Divider"></div>
-            <h3>Subtitle</h3>
+            <h3>Graphic Design</h3>
 
-            <p>Body text goes here...</p>
+            <p>Studying marketing enabled me to work on many design projects. I've created hypothetical companies, their logos, their brand and given every opportunity presented them in class.</p>
+
+            <p>Marketing made me understand the importance of understanding the client, analyzing the market and creating creative solutions.</p>
         </div>
 
     </div>
