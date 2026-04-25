@@ -151,11 +151,11 @@ body {
 }
 
 @keyframes microShake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    75% { transform: translateX(-1px); }
-    100% { transform: translateX(0); }
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-2px); }
+        50% { transform: translateX(2px); }
+        75% { transform: translateX(-1px); }
+        100% { transform: translateX(0); }
 }
 
 .Menu a:hover {
@@ -243,13 +243,13 @@ body {
     gap: 2rem;
 }
 .Fishnet_Separator_Top {
-    height: 41.3vh;
+    height: 36.1vh;
 
     background-image:
         linear-gradient(rgb(18, 66, 56) 2px, transparent 2px),
         linear-gradient(90deg, rgb(18, 66, 56) 2px, transparent 2px);
 
-    background-size: 80px 80px;
+    background-size: 40px 40px;
     background-position: 0 0;
 
     opacity: 1;
@@ -261,12 +261,12 @@ body {
 }
 .Fishnet_Button_Top {
     
-    padding: 1rem 3rem;
+    padding: 0.9rem 3.7rem;
 
     background-color: rgb(8, 198, 15);
     color: rgb(255, 255, 255);
 
-    margin: 4.5rem 0 0 0;
+    margin: 4.8rem 0 0 0;
 
     font-family: monospace;
     font-weight: bold;
@@ -283,9 +283,9 @@ body {
 }
 
 .Grid_Section {
-    margin-top: 10vh; /* pushes below header */
+    margin-top: 1vh; /* pushes below header */
     padding: 8vh 5vw;
-    margin-bottom: 80vh;
+    margin-bottom: 8vh;
 }
 
 .Grid_Container {
@@ -328,17 +328,44 @@ body {
     justify-self: start;
 }
 
+.Download_Button:hover {
+    box-shadow: 0 7px 0px rgb(13, 57, 44);
+    cursor: pointer;
+    animation: DownloadButton 0.23s ease;
+    transition: box-shadow 0.7s ease;
+    transform: translateY(-2px);
+}
+
+@keyframes DownloadButton {
+        0% { transform: translateY(0); }
+    50% { transform: translateY(1.4px); }
+    100% { transform: translateY(-1.1px); }
+}
+
 .Thumbnail {
     width: 100%;
     height: auto;
 
     margin-bottom: 1rem;
-    size: 1.02
 }
 
 .Reference_Title {
     font-family: monospace;
     font-size: 0.8rem;
+}
+
+.Header_Title {
+    font-family: monospace;
+    color: orange;
+    font-size: 1.4rem;
+    font-weight: bold;
+
+    position:absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    white-space: nowrap;
+
 }
 </style>
 
@@ -352,12 +379,14 @@ body {
         <div></div>
     </div>
 
+    <div class="Header_Title">Amar Zulić</div>
+
     <div class="Menu" id="menu">
         <a href="Home.html">Home</a>
         <a href="About.html">About Me</a>
         <a href="Projects.html">Projects</a>
-        <a href="work.html">Work Experience</a>
-        <a href="references.html">References</a>
+        <a href="Experience.html">Work Experience</a>
+        <a href="References.html">References</a>
         <a href="contact.html">Contacts</a>
     </div>
     <div class="Menu_Overlay" id="menuOverlay"></div>   
