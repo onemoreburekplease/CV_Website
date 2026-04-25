@@ -269,6 +269,7 @@ body {
     margin: 4.5rem 0 0 0;
 
     font-family: monospace;
+    font-weight: bold;
     text-decoration: none;
     font-size: 3rem;
 
@@ -282,14 +283,14 @@ body {
 }
 
 .Grid_Section {
-    margin-top: 12vh; /* pushes below header */
+    margin-top: 10vh; /* pushes below header */
     padding: 8vh 5vw;
     margin-bottom: 80vh;
 }
 
 .Grid_Container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
     gap: 2rem;
 }
 
@@ -318,6 +319,7 @@ body {
     text-decoration: none;
     font-family: monospace;
     font-size: 0.9rem;
+    font-weight: bold;
     border-radius: 20px;
     box-shadow: 0 4px 0px rgb(13, 57, 44);
     transition: all 0.25s ease;
@@ -329,8 +331,14 @@ body {
 .Thumbnail {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+
     margin-bottom: 1rem;
+    size: 1.02
+}
+
+.Reference_Title {
+    font-family: monospace;
+    font-size: 0.8rem;
 }
 </style>
 
@@ -364,25 +372,36 @@ body {
     <div class="Grid_Container">
 
         <div class="Grid_Box">
-            <img src="https://via.placeholder.com/400x300" alt="Reference 1" class="Thumbnail">
+            <img src="PDF_Moder.svg" alt="Reference 1" class="Thumbnail">
+            <p class="Reference_Title">Fora.pdf</p>
             <a class="Download_Button">Download</a>
             <p class="File_Size">50 KB</p>
         </div>
 
         <div class="Grid_Box">
-            <img src="https://via.placeholder.com/400x300" alt="Reference 1" class="Thumbnail">
+            <img src="PDF_Oranzen.svg" alt="Reference 1" class="Thumbnail">
+            <p class="Reference_Title">Ministrstvo.pdf</p>
             <a class="Download_Button">Download</a>
             <p class="File_Size">50 KB</p>
         </div>
 
          <div class="Grid_Box">
-            <img src="https://via.placeholder.com/400x300" alt="Reference 1" class="Thumbnail">
+            <img src="PDF_Rdec.svg" alt="Reference 1" class="Thumbnail">
+            <p class="Reference_Title">EF_App.pdf</p>
             <a class="Download_Button">Download</a>
             <p class="File_Size">50 KB</p>
         </div>
 
         <div class="Grid_Box">
-            <img src="https://via.placeholder.com/400x300" alt="Reference 1" class="Thumbnail">
+            <img src="PDF_Zelen.svg" alt="Reference 1" class="Thumbnail">
+            <p class="Reference_Title">Kiosk_Up.pdf</p>
+            <a class="Download_Button">Download</a>
+            <p class="File_Size">50 KB</p>
+        </div>
+
+        <div class="Grid_Box">
+            <img src="PDF_Rumen.svg" alt="Reference 1" class="Thumbnail">
+            <p class="Reference_Title">ŠCDM.pdf</p>
             <a class="Download_Button">Download</a>
             <p class="File_Size">50 KB</p>
         </div>
