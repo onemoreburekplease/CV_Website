@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Experience</title>
+    <title>References</title>
 
     <style>
 
@@ -242,108 +242,6 @@ body {
     align-items: center;
     gap: 2rem;
 }
-
-/* GRID SECTION */
-.Grid_Section {
-    margin-top: 12vh; /* pushes below header */
-    padding: 8vh 5vw;
-    margin-bottom: 80vh;
-}
-
-/* GRID LAYOUT */
-.Grid_Container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 3rem;
-    height: 120vh;
-}
-
-/* BOX STYLE */
-.Grid_Box {
-    background: linear-gradient(135deg, rgb(155, 235, 252), rgb(160, 240, 255));
-    color: rgb(96, 96, 96);
-
-    padding: 4rem;
-    border: rgb(29, 163, 155) 2px solid;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    transition: transform 0.2s ease, box-shadow 0.1s ease;
-
-    cursor: inherit;
-
-    border-radius: 3rem;
-
-    box-shadow: 0 0px 0px rgb(13, 57, 44);
-}
-
-/* HOVER EFFECT */
-.Grid_Box:hover {
-    transform: scale(1.01);
-    transform-origin: bottom center;
-    cursor: url(Custom_Cursor-01.svg), auto;
-
-    background: linear-gradient(135deg, rgb(165, 230, 252), rgb(170, 245, 255));
-}
-
-/* TEXT STYLES */
-.Grid_Box h1 {
-    font-family: monospace;
-    font-size: 3.8rem;
-    margin: 0.2rem 0 0.9rem 0;
-    color: rgb(32, 11, 56);
-}
-
-.Grid_Box h3 {
-    font-family: monospace;
-    font-size: 1.8rem;
-    margin: 0.7rem 0 0.9rem 0;
-    opacity: 1;
-    color: rgb(38, 27, 7);
-}
-
-.Grid_Box h2 {
-    font-family: monospace;
-    font-size: 1rem;
-    margin: 0.3rem 0 0.9rem 0.7rem;
-    color: rgb(41, 30, 70);
-}
-
-.Grid_Box p {
-    font-family: monospace;
-    font-size: 1.1rem;
-    margin: 0.9rem 0 0.5rem 0;
-    color: rgb(38, 27, 7);
-}
-
-/* ORANGE DIVIDERS */
-.Divider {
-    height: 2px;
-    background-color: rgb(12, 12, 12);
-    margin: 1rem 0;
-    width: 30%;
-}
-
-/* INITIAL STATE (hidden) */
-.Grid_Section {
-    margin-top: 3vh;
-    padding: 2vh 2vw;
-
-    opacity: 0;
-    transform: translateY(200px);
-
-    transition: opacity 0.8s ease, transform 1.8s ease;
-}
-
-/* VISIBLE STATE */
-.Grid_Section.Visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 .Fishnet_Separator_Top {
     height: 41.3vh;
 
@@ -365,14 +263,14 @@ body {
     
     padding: 1rem 3rem;
 
-    background-color: rgb(29, 66, 148);
+    background-color: rgb(8, 198, 15);
     color: rgb(255, 255, 255);
 
     margin: 4.5rem 0 0 0;
 
     font-family: monospace;
     text-decoration: none;
-    font-size: 3.5rem;
+    font-size: 3rem;
 
     border-radius: 5rem;
 
@@ -381,6 +279,58 @@ body {
     transition: all 0.25s ease;
 
     border: rgb(13, 57, 44) 2px solid;
+}
+
+.Grid_Section {
+    margin-top: 12vh; /* pushes below header */
+    padding: 8vh 5vw;
+    margin-bottom: 80vh;
+}
+
+.Grid_Container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 2fr));
+    gap: 2rem;
+}
+
+.Grid_Box {
+    border: rgb(18, 66, 56) 2px solid;
+    border-radius: 10px;
+    padding: 1rem;
+    text-align: center;
+    box-shadow: 0 4px 0px rgb(18, 66, 56);
+}
+
+.File_Size {
+    margin-top: 0.5rem;
+    color: rgb(18, 66, 56);
+    font-family: monospace;
+    font-size: 0.9rem;
+    align-self: end;
+    justify-self: end;
+}
+
+.Download_Button {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background-color: rgb(8, 198, 15);
+    color: white;
+    text-decoration: none;
+    font-family: monospace;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    box-shadow: 0 4px 0px rgb(13, 57, 44);
+    transition: all 0.25s ease;
+
+    align-self: end;
+    justify-self: start;
+}
+
+.Thumbnail {
+    width: 100%;
+    height: auto;
+    border-radius: 5px;
+    margin-bottom: 1rem;
 }
 </style>
 
@@ -406,71 +356,39 @@ body {
 </div>
 
 <section class="Fishnet_Separator_Top"> 
-     <a class="Fishnet_Button_Top">My Work Experience</a>
+     <a class="Fishnet_Button_Top">References</a>
 </section>
-
 
 <section class="Grid_Section">
 
     <div class="Grid_Container">
 
-        <!-- LEFT BIG BOX -->
         <div class="Grid_Box">
-            <h1>FORA d.o.o.</h1>
-            <div class="Divider"></div>
-            
-            <h3>Graphic Design and Web development</h3>
-            <h2>(2024 - current)</h2>
-
-            <p><b>FORA</b> is an <b>IT company</b> that develops streaming platforms. Some of its customers include Donald Trump (Truth+), T2 (T2ToGo), UAE (Rotana) and many more.</p>
-            
-            <p>I create <b>Ads</b> for movies, shows, new channel launches and sporting events. I'm responsible for the brainstorming, I sketch it roughly out, and finally after acquiring feedback, finish it in either Photoshop, Illustrator, Blender or any combination thereof.</p>
-            
-            <p>At FORA I also currently do and am studying Web development and UI/UX design. I create logos, icons, UI setups and more. I also do and am slowly studying programming in general.</p>
-
-            <p></p>
+            <img src="https://via.placeholder.com/400x300" alt="Reference 1" class="Thumbnail">
+            <a class="Download_Button">Download</a>
+            <p class="File_Size">50 KB</p>
         </div>
 
-        <!-- RIGHT TOP -->
         <div class="Grid_Box">
-            <h1>Ministry of Digitalization RS</h1>
-            <div class="Divider"></div>
-            
-            <h3>Event Organizer and Designer</h3>
-            <h2>(2022 - 2025)</h2>
-                        
-            <p>My job at the Ministry was a pleasure to work at. It was very diversified, involving brainstorming and creating campaigns from the concept to the final execution. </p>
-                
-            <p>Campaigns had to have a specific identity and feel. Design was usually <b>print based</b>, leading me to create broschures, posters, huge stickers and even whole billboards.</p>
-
-            <p>I've also worked on <b>digital design</b>, creating social media posts, animations, collaborations with other RS institutions and much more.</p>
+            <img src="https://via.placeholder.com/400x300" alt="Reference 1" class="Thumbnail">
+            <a class="Download_Button">Download</a>
+            <p class="File_Size">50 KB</p>
         </div>
 
-        <!-- RIGHT BOTTOM -->
+         <div class="Grid_Box">
+            <img src="https://via.placeholder.com/400x300" alt="Reference 1" class="Thumbnail">
+            <a class="Download_Button">Download</a>
+            <p class="File_Size">50 KB</p>
+        </div>
+
         <div class="Grid_Box">
-            <h1>Sport Center Dolgi Most</h1>
-            <div class="Divider"></div>
-            <h3>Reception and Graphic Design</h3>
-
-            <p>I worked weekends at my local sports center, where I live near. Most of the time I worked reception. I met alot of people, started communicating profesionally. I have tons of experience working under pressure and keeping calm in turbulent environments.</p>
-
-            <p>Working there really made my communication skills better. I express myself and my ideas clearly and honestly, while trying to understand everybody around me.</p>
-
-            <p>Sometimes I would help with graphic design projects, creating flyers and posters for events.</p>
-
+            <img src="https://via.placeholder.com/400x300" alt="Reference 1" class="Thumbnail">
+            <a class="Download_Button">Download</a>
+            <p class="File_Size">50 KB</p>
         </div>
 
-                <div class="Grid_Box">
-            <h1>University Projects</h1>
-            <div class="Divider"></div>
-            <h3>Graphic Design</h3>
 
-            <p>Studying marketing enabled me to work on many design projects. I've created hypothetical companies, their logos, their brand and given every opportunity presented them in class.</p>
-
-            <p>Marketing made me understand the importance of understanding the client, analyzing the market and creating creative solutions.</p>
-        </div>
-
-    </div>
+    </div> 
 
 </section>
 
