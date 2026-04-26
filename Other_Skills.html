@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>References</title>
+    <title>Other skills</title>
 
     <style>
 
@@ -142,6 +142,7 @@ body {
     background-color: #9b0979;
     color: white;
 }
+
 /* Divider lines between menu links */
 .Menu a:not(:last-child) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -154,11 +155,11 @@ body {
 }
 
 @keyframes microShake {
-        0% { transform: translateX(0); }
-        25% { transform: translateX(-2px); }
-        50% { transform: translateX(2px); }
-        75% { transform: translateX(-1px); }
-        100% { transform: translateX(0); }
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-2px); }
+    50% { transform: translateX(2px); }
+    75% { transform: translateX(-1px); }
+    100% { transform: translateX(0); }
 }
 
 .Menu a:hover {
@@ -264,17 +265,16 @@ body {
 }
 .Fishnet_Button_Top {
     
-    padding: 0.9rem 3.7rem;
+    padding: 1rem 3rem;
 
-    background-color: rgb(8, 198, 15);
+    background-color: rgb(29, 66, 148);
     color: rgb(255, 255, 255);
 
-    margin: 4.8rem 0 0 0;
+    margin: 4.5rem 0 0 0;
 
     font-family: monospace;
-    font-weight: bold;
     text-decoration: none;
-    font-size: 3rem;
+    font-size: 2.2rem;
 
     border-radius: 5rem;
 
@@ -283,78 +283,6 @@ body {
     transition: all 0.25s ease;
 
     border: rgb(13, 57, 44) 2px solid;
-}
-
-.Grid_Section {
-    margin-top: 1vh; /* pushes below header */
-    padding: 8vh 5vw;
-    margin-bottom: 8vh;
-}
-
-.Grid_Container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 2fr));
-    gap: 2rem;
-}
-
-.Grid_Box {
-    border: rgb(18, 66, 56) 2px solid;
-    border-radius: 10px;
-    padding: 1rem;
-    text-align: center;
-    box-shadow: 0 4px 0px rgb(18, 66, 56);
-}
-
-.File_Size {
-    margin-top: 0.5rem;
-    color: rgb(18, 66, 56);
-    font-family: monospace;
-    font-size: 0.9rem;
-    align-self: end;
-    justify-self: end;
-}
-
-.Download_Button {
-    display: inline-block;
-    padding: 0.5rem 1.5rem;
-    background-color: rgb(8, 198, 15);
-    color: white;
-    text-decoration: none;
-    font-family: monospace;
-    font-size: 0.9rem;
-    font-weight: bold;
-    border-radius: 20px;
-    box-shadow: 0 4px 0px rgb(13, 57, 44);
-    transition: all 0.25s ease;
-
-    align-self: end;
-    justify-self: start;
-}
-
-.Download_Button:hover {
-    box-shadow: 0 7px 0px rgb(13, 57, 44);
-    cursor: pointer;
-    animation: DownloadButton 0.23s ease;
-    transition: box-shadow 0.7s ease;
-    transform: translateY(-2px);
-}
-
-@keyframes DownloadButton {
-        0% { transform: translateY(0); }
-    50% { transform: translateY(1.4px); }
-    100% { transform: translateY(-1.1px); }
-}
-
-.Thumbnail {
-    width: 100%;
-    height: auto;
-
-    margin-bottom: 1rem;
-}
-
-.Reference_Title {
-    font-family: monospace;
-    font-size: 0.8rem;
 }
 
 .Header_Title {
@@ -369,6 +297,94 @@ body {
     margin: 0 auto;
     white-space: nowrap;
 
+}
+
+.Letnica_Modra {
+    background-color: rgb(29, 66, 148);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: fit-content;
+    color: white;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+.Letnica_Rumena {
+    background-color: rgb(254, 226, 16);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: fit-content;
+    color: black;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+.Letnica_Rdeča {
+    background-color: rgb(248, 24, 24);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: fit-content;
+    color: white;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+.Letnica_Zelena {
+    background-color: rgb(34, 238, 7);
+    padding: 1rem;
+    border-radius: 1rem;
+    width: fit-content;
+    color: black;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
+.Skills_Section {
+    margin-top: 15vh;
+    margin-bottom: 15vh;
+}
+
+.Accordion_Item {
+    border: rgb(13, 57, 44) 2px solid;
+    border-radius: 1rem;
+    margin-bottom: 1vh;
+    overflow: hidden;
+    width: 60%;
+    margin-left: 1vw;
+    align-self: center;
+    justify-self: center;
+}
+.Accordion_Header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    cursor: pointer;
+}
+.Arrow {
+    font-size: 1.7rem;
+    transition: height 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    font-family: monospace;
+}
+.Active .Arrow {
+    transform: rotate(90deg);
+}
+.Accordion_Text {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+    font-family: monospace;
+    margin-left: 2.5vw;
+    font-size: 1rem;
+}
+.Active .Accordion_Text {
+    padding: 15px;
+}
+.Title {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 1.5rem;
+    margin-left: 1.7vw;
 }
 </style>
 
@@ -392,55 +408,67 @@ body {
         <a href="References.html">References</a>
         <a href="Other_Skills.html">Other Skills</a>
         <a href="contact.html">Contacts</a>
+        
     </div>
     <div class="Menu_Overlay" id="menuOverlay"></div>   
 </div>
 
 <section class="Fishnet_Separator_Top"> 
-     <a class="Fishnet_Button_Top">References</a>
+     <a class="Fishnet_Button_Top">Other Skills</a>
 </section>
 
-<section class="Grid_Section">
 
-    <div class="Grid_Container">
+<section class="Skills_Section">
 
-        <div class="Grid_Box">
-            <img src="PDF_Moder.svg" alt="Reference 1" class="Thumbnail">
-            <p class="Reference_Title">Fora.pdf</p>
-            <a class="Download_Button">Download</a>
-            <p class="File_Size">50 KB</p>
+    <div class="Accordion_Item">
+        <div class="Accordion_Header">
+            <span class="Title">Languages</span>
+            <span class="Arrow">></span>
         </div>
-
-        <div class="Grid_Box">
-            <img src="PDF_Oranzen.svg" alt="Reference 1" class="Thumbnail">
-            <p class="Reference_Title">Ministrstvo.pdf</p>
-            <a class="Download_Button">Download</a>
-            <p class="File_Size">50 KB</p>
+        <div class="Accordion_Text">
+            Slovenian (C1), English (C1), Serbo-Croatian (C1), German (B1)
         </div>
+    </div>
 
-         <div class="Grid_Box">
-            <img src="PDF_Rdec.svg" alt="Reference 1" class="Thumbnail">
-            <p class="Reference_Title">EF_App.pdf</p>
-            <a class="Download_Button">Download</a>
-            <p class="File_Size">50 KB</p>
+    <div class="Accordion_Item">
+        <div class="Accordion_Header">
+            <span class="Title">Coding Languages</span>
+            <span class="Arrow">></span>
         </div>
-
-        <div class="Grid_Box">
-            <img src="PDF_Zelen.svg" alt="Reference 1" class="Thumbnail">
-            <p class="Reference_Title">Kiosk_Up.pdf</p>
-            <a class="Download_Button">Download</a>
-            <p class="File_Size">50 KB</p>
+        <div class="Accordion_Text">
+            HTML, CSS, JavaScript
         </div>
+    </div>
 
-        <div class="Grid_Box">
-            <img src="PDF_Rumen.svg" alt="Reference 1" class="Thumbnail">
-            <p class="Reference_Title">ŠCDM.pdf</p>
-            <a class="Download_Button">Download</a>
-            <p class="File_Size">50 KB</p>
+    <div class="Accordion_Item">
+        <div class="Accordion_Header">
+            <span class="Title">Classess at University</span>
+            <span class="Arrow">></span>
         </div>
+        <div class="Accordion_Text">
+            Marketing, Marketing Research, Marketing Analytics, Marketing Communication, Service Design, Statistics, Accounting, Management, Business Law, Micro/Macroeconomics etc.
+        </div>
+    </div>
 
+    <div class="Accordion_Item">
+        <div class="Accordion_Header">
+            <span class="Title">Gym Accomplishments</span>
+            <span class="Arrow">></span>
+        </div>
+        <div class="Accordion_Text">
+            Benched 50kg, squated 80kg
+        </div>
+    </div>
 
-    </div> 
+    <div class="Accordion_Item">
+        <div class="Accordion_Header">
+            <span class="Title">Arts and Crafts</span>
+            <span class="Arrow">></span>
+        </div>
+        <div class="Accordion_Text">
+            Drawing, painting, embroidery, mosaics, jewelry making, cooking, scrapbooking, paper crafting etc.
+        </div>
+    </div>
 
 </section>
 
@@ -509,6 +537,35 @@ hamburger.addEventListener("click", () => {
 overlay.addEventListener("click", () => {
     menu.classList.remove("open");
     overlay.classList.remove("active");
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const items = document.querySelectorAll(".Accordion_Item");
+
+    items.forEach(item => {
+        const header = item.querySelector(".Accordion_Header");
+        const content = item.querySelector(".Accordion_Text");
+
+        header.addEventListener("click", () => {
+
+            const isOpen = item.classList.contains("Active");
+
+            // Close all
+            items.forEach(i => {
+                i.classList.remove("Active");
+                i.querySelector(".Accordion_Text").style.height = "0px";
+            });
+
+            // Open clicked
+            if (!isOpen) {
+                item.classList.add("Active");
+                content.style.height = content.scrollHeight + "px";
+            }
+
+        });
+    });
+
 });
 </script>
 
