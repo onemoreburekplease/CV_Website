@@ -163,6 +163,8 @@ body {
   box-shadow: 0 6px 0 rgb(13, 57, 44);
 
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  position: relative;
 }
 
 .Grid_Card img {
@@ -181,6 +183,32 @@ body {
 .Grid_Card:active {
   transform: translateY(-2px);
   box-shadow: 0 6px 0 rgb(13, 57, 44);
+}
+
+.Grid_Card::after {
+    content: attr(data-status);
+    position: absolute;
+    top: 1vh;
+    right: 1vw;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    font-family: monospace;
+    border-radius: 2rem;
+
+    color: white;
+    pointer-events: none;
+
+    transform: translateY(0);
+    transition: transform 0.3s ease; }
+
+.Grid_Card[data-status="Pending"]::after {
+  content: "Details Pending";
+  background-color: #9e9e9e;
+}
+
+.Grid_Card[data-status="Ready"]::after {
+  content: "Details Available";
+  background-color: #00c853;
 }
 
                                                     /*Hamburger*/  
@@ -415,67 +443,67 @@ body {
 
 <div class="Grid">
 
-    <a href="Project_Htmls/Samo_Jako.html" class="Grid_Card" data-title="Samo jako animation">
+    <a href="Project_Htmls/Samo_Jako.html" class="Grid_Card" data-title="Samo jako animation" data-status="Ready">
     <img src="Samo_Jako_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="Project_Htmls/SDIT_App.html" class="Grid_Card" data-title="University tourism app">
+  <a href="Project_Htmls/SDIT_App.html" class="Grid_Card" data-title="University tourism app" data-status="Ready">
     <img src="SDIT_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
- <a href="" class="Grid_Card" data-title="CV Website">
+ <a href="" class="Grid_Card" data-title="CV Website" data-status="Pending">
     <img src="Website_Thumbnail.svg" alt="This CV Website!" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Nilo-Series promotion">
+  <a href="Project_Htmls/Nilo_Series.html" class="Grid_Card" data-title="Nilo-Series promotion" data-status="Ready">
     <img src="Nilo_Series_2.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Gea Collage rebrand">
+  <a href="#" class="Grid_Card" data-title="Gea Collage rebrand" data-status="Pending">
     <img src="Gea_Collage_Rembrand.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Olimpija Ljubljana rebrand">
+  <a href="#" class="Grid_Card" data-title="Olimpija Ljubljana rebrand" data-status="Pending">
     <img src="Olimpija_Rebrand_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Hiška 3D animation">
+  <a href="#" class="Grid_Card" data-title="Hiška 3D animation" data-status="Pending">
     <img src="Hike_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Kiosk-Up campaign">
+  <a href="#" class="Grid_Card" data-title="Kiosk-Up campaign" data-status="Pending">
     <img src="Kiosk_Up_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Wool coffee stopmotion animation">
+  <a href="#" class="Grid_Card" data-title="Wool coffee stopmotion animation" data-status="Pending">
     <img src="Kavica_Felt_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Labubu animation">
+  <a href="#" class="Grid_Card" data-title="Labubu animation" data-status="Pending">
     <img src="Labubu_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Mačka pixelart animation">
+  <a href="#" class="Grid_Card" data-title="Mačka pixelart animation" data-status="Pending">
     <img src="Macka_Pixel_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
     
-  <a href="#" class="Grid_Card" data-title="Bojan cartoon">
+  <a href="#" class="Grid_Card" data-title="Bojan cartoon" data-status="Pending">
     <img src="Bojan_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Maškare cartoon">
+  <a href="#" class="Grid_Card" data-title="Maškare cartoon" data-status="Pending">
     <img src="Maskare_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Christmas 3D animation">
+  <a href="#" class="Grid_Card" data-title="Christmas 3D animation" data-status="Pending">
     <img src="Izpit_Christmas_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Intervju cartoon">
+  <a href="#" class="Grid_Card" data-title="Intervju cartoon" data-status="Pending">
     <img src="Golob_S_Kapo_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
-  <a href="#" class="Grid_Card" data-title="Face AE animation">
+  <a href="#" class="Grid_Card" data-title="Face AE animation" data-status="Pending">
     <img src="Skillshare_Face_ManonLuart_Thumbnail.png" alt="Tourism_Uni_App" 
     style="width:100%; height:100%; object-fit: cover;"></a>
 
