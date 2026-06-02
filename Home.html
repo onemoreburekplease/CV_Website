@@ -234,15 +234,25 @@ background-position: 0 0;
 
 .Temp_Logo {
     position: absolute;
-    left: 2vw;
-    top: 50%;
-    transform: translateY(-50%);
+    left: 1.8vw; /* keep it on the left */
+    
+    height: 65%;  /* key: scale relative to header height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 
-    width: 50px;
-    height: 50px;
+.Temp_Logo img {
+    height: 100%;
+    width: auto;      /* keeps proportions */
+    object-fit: contain;
+}
 
-    background-color: orange;
-    border-radius: 10px;
+.Temp_Logo img:hover {
+    transform: scale(1.07);
+    transition: transform 0.2s ease-out;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+    cursor: pointer;
 }
 
 
@@ -809,7 +819,9 @@ background-position: 0 0;
 
 <div class="Header_Box">
 
-    <div class="Temp_Logo"></div>
+    <a class="Temp_Logo" href="Home.html">
+        <img src="Logo_CV_Final.svg" alt="Logo">
+    </a>
 
     <div class="Header_Title">Amar Zulić</div>
 
@@ -841,12 +853,12 @@ background-position: 0 0;
 <section class="Intro_Section">
 
     <div class="Profile_Pic">
-        <img src="Profilna.png.jpg" alt="Amar Zulić">   
+        <img src="Profilka_1.jpg" alt="Amar Zulić">   
     </div>
 
     <div class="Intro_Text MoveRight">
         <h1>Amar Zulić</h1>
-        <p>Marketing student | Graphic Designer, Animator, Motion Designer, 3D Artist and Web Developer.
+        <p>Marketing student | Graphic Designer, Animator, Motion Designer, 3D Artist and Web/App Developer.
         </p>
 
 

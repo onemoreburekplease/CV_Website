@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>About Me – Amar Zulić</title>
 
 <style>
@@ -26,42 +27,20 @@ body {
 
     display: flex;
     align-items: center;
-    padding: 0 2vw;
 
     box-sizing: border-box;
     z-index: 1000;
 }
 
-.Header_Box a {
-    display: inline-block;
-
-    padding: 0.6rem 1.4rem;
-
-    background-color: orange;
-    stroke: rgb(18, 66, 56) 2px;
-    color: rgb(38, 27, 7);
-
-    text-decoration: none;
-    font-size: 0.95rem;
-    font-family: monospace;
-
-    border-radius: 2rem;
-
-    transition: all 0.25s ease;
-
-    position: relative;
-    overflow: hidden;
-}
 
 .Header_Box a {
     display: inline-block;
     padding: 0.6rem 1.4rem;
-    background-color: orange;
     color: rgb(38, 27, 7);
     text-decoration: none;
     font-size: 0.95rem;
     font-family: monospace;
-    border-radius: 2rem;
+    color: orange;
 
     position: relative;
     overflow: hidden;
@@ -69,39 +48,13 @@ body {
     transition: all 0.25s ease;
 }
 
-.Header_Box a::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
 
-    background: linear-gradient(
-        to right,
-        rgba(255,255,255,0) 0%,
-        rgba(252, 255, 174, 0.9) 45%,
-        rgba(255,255,255,0) 55%,
-        rgba(255,255,255,0) 100%
-    );
-    transform: translateX(-100%);
-    transition: transform 0.55s ease;
-}
-
-.Header_Box a:hover::after {
-    transform: translateX(100%);
-}
-
-/* Hover effect (inverse like menu) */
-.Header_Box a:hover {
-    scale: 1.02;
-
-}
 /* =====================
    ABOUT SECTION
 ===================== */
 
 .About_Section {
-    margin-top: 13vh;
-    padding: 0 15vw 8vh 15vw;
+    padding: 0 10vw 8vh 12vw;
 
     display: flex;
     align-items: center;
@@ -116,8 +69,9 @@ body {
 }
 .About_Image {
     flex: none;
-    width: 290px;
-    height: 290px;
+    width: 390px;
+    height: 390px;
+    margin-top: 30vh;
 
     opacity: 0;
     transform: translateY(40px);
@@ -137,14 +91,15 @@ body {
     outline: 2px rgb(18, 66, 56) solid;
 
 
-        transition: transform 0.6s ease;
+    transition: transform 0.6s ease;
 
     
 }
 
 .About_Image img:hover {
     transform: scale(1.05);
-    transform: rotate(360deg);    
+    transform: rotate(360deg);
+    transition: transform 0.5s ease;    
 }
 
 
@@ -201,6 +156,27 @@ body {
     transform: translateY(0);
 }
 
+.Temp_Logo {
+    
+    height: 65%;  /* key: scale relative to header height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Temp_Logo img {
+    height: 100%;
+    width: auto;      /* keeps proportions */
+    object-fit: contain;
+}
+
+.Temp_Logo img:hover {
+    transform: scale(1.08);
+    transition: transform 0.2s ease-out;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
+
  .Fishnet_Separator_Bottom {
     height: 35vh;
 
@@ -252,9 +228,35 @@ body {
     cursor: pointer;
 }
 
+
 .hello {
-    font-size: 9rem;
-    margin-bottom: 2rem;
+    font-size: 10rem;
+    margin-bottom: 1rem;
+    margin-top: 6rem;
+}
+
+@media (max-width: 900px) {
+    .hello {
+        font-size: 3rem;
+        margin-top: 3rem;
+    }
+}
+@media (max-width: 900px) {
+    .Header_Title {
+        font-size: 1rem;
+        max-width: 60vw;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+@media (max-width: 900px) {
+    .About_Section {
+        flex-direction: column;
+        flex-wrap: nowrap;
+        padding: 0 5vw 8vh 5vw;
+        gap: 2rem;
+    }
 }
 
 .About_Separator {
@@ -437,7 +439,9 @@ body {
 <body>
 
 <div class="Header_Box">
-    <a href="Home.html">← Back to Home</a>
+    <a class="Temp_Logo" href="Home.html">
+        <img src="Logo_CV_Final.svg" alt="Logo">
+    </a>
 
             <div class="Hamburger" id="hamburger">
         <div></div>
@@ -462,7 +466,7 @@ body {
 <section class="About_Section" id="about_light">
 
 <div class="About_Image">
-    <img src="Profilna.png.jpg" alt="Amar Zulić">
+    <img src="Profilka_4.jpg" alt="Amar Zulić">
 </div>
 
 <div>

@@ -177,7 +177,6 @@ body {
 
     display: flex;
     align-items: center;
-    padding: 0 2vw;
 
     box-sizing: border-box;
     z-index: 1000;
@@ -370,11 +369,37 @@ body {
     white-space: nowrap;
 
 }
+
+.Temp_Logo {
+
+    
+    height: 62%;  /* key: scale relative to header height */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Temp_Logo img {
+    height: 100%;
+    width: auto;      /* keeps proportions */
+    object-fit: contain;
+}
+
+.Temp_Logo img:hover {
+    transform: scale(1.07);
+    transition: transform 0.2s ease-out;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+    cursor: pointer;
+}
 </style>
 
 <body>
 
 <div class="Header_Box">
+
+    <a class="Temp_Logo" href="Home.html">
+        <img src="Logo_CV_Final.svg" alt="Logo">
+    </a>
 
         <div class="Hamburger" id="hamburger">
         <div></div>
