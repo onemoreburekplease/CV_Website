@@ -11,7 +11,8 @@ body {
     background-color: rgb(255, 250, 225);
     position: relative;
 }
-                                                    /*Hamburger*/  
+
+/* -------------------- Hamburger -------------------- */
 .Hamburger {
     width: 2.5rem;
     height: 1.6rem;
@@ -29,13 +30,14 @@ body {
 .Hamburger:hover {
     transform: scale(1.1);
 }
-
 .Hamburger div {
     height: 0.25rem;
     width: 100%;
     background-color: orange;
     border-radius: 2rem;
 }
+
+/* -------------------- Slide-out menu -------------------- */
 .Menu {
     position: fixed;
     top: 0;
@@ -58,16 +60,11 @@ body {
     transition: transform 0.4s ease;
 
     z-index: 2000;
-
-
 }
-
-/* Open state */
 .Menu.open {
     transform: translateX(0);
 }
 
-/* Dark background fade */
 .Menu_Overlay {
     position: fixed;
     inset: 0;
@@ -80,15 +77,11 @@ body {
     transition: opacity 0.3s ease;
 
     z-index: 1500;
-    
 }
-
 .Menu_Overlay.active {
     opacity: 1;
     pointer-events: auto;
 }
-
-/* Menu Links */
 
 .Menu a {
     padding: 0.8rem 1.5rem;
@@ -100,56 +93,19 @@ body {
     font-size: 0.95rem;
 
     transition: all 0.25s ease;
-    
-
 }
+.Menu a:nth-child(1):hover { background-color: rgb(243, 0, 0); color: white; }
+.Menu a:nth-child(2):hover { background-color: rgb(255, 85, 0); color: black; }
+.Menu a:nth-child(3):hover { background-color: orange; color: rgb(38, 27, 7); }
+.Menu a:nth-child(4):hover { background-color: #00c853; color: white; }
+.Menu a:nth-child(5):hover { background-color: #2979ff; color: white; }
+.Menu a:nth-child(6):hover { background-color: #aa00ff; color: white; }
+.Menu a:nth-child(7):hover { background-color: #9b0979; color: white; }
 
-.Menu a:nth-child(1):hover {
-    background-color: rgb(243, 0, 0);
-    color: white;
-}
-
-/* 2 */
-.Menu a:nth-child(2):hover {
-    background-color: rgb(255, 85, 0);
-    color: black;
-}
-
-/* 3 */
-.Menu a:nth-child(3):hover {
-    background-color: orange;
-    color: rgb(38, 27, 7);
-}
-
-/* 4 */
-.Menu a:nth-child(4):hover {
-    background-color: #00c853;
-    color: white;
-}
-
-/* 5 */
-.Menu a:nth-child(5):hover {
-    background-color: #2979ff;
-    color: white;
-}
-
-/* 6 */
-.Menu a:nth-child(6):hover {
-    background-color: #aa00ff;
-    color: white;
-}
-.Menu a:nth-child(7):hover {
-    background-color: #9b0979;
-    color: white;
-}
-
-/* Divider lines between menu links */
 .Menu a:not(:last-child) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
     padding-bottom: 0.9rem;
 }
-
-/* Optional: add spacing above next item */
 .Menu a + a {
     padding-top: 0.9rem;
 }
@@ -161,12 +117,11 @@ body {
     75% { transform: translateX(-1px); }
     100% { transform: translateX(0); }
 }
-
 .Menu a:hover {
     animation: microShake 0.35s ease;
 }
 
-/* Header */
+/* -------------------- Header bar -------------------- */
 .Header_Box {
     width: 100%;
     height: 11vh;
@@ -196,39 +151,56 @@ body {
     transition: all 0.25s ease;
 }
 
-.Fishnet_Button {
-
-    padding: 16px 34px;
-
-    background-color: orange;
-    color: rgb(38, 27, 7);
-
+.Header_Title {
     font-family: monospace;
-    text-decoration: none;
-    font-size: 18px;
+    color: orange;
+    font-size: 1.4rem;
+    font-weight: bold;
 
-    border-radius: 40px;
-
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-
-    transition: all 0.25s ease;
-
-    border: rgb(13, 57, 44) 2px solid;
-    
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    white-space: nowrap;
 }
 
-.Fishnet_Button:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-
-    backdrop-filter: blur(4px);
-
+.Temp_Logo {
+    height: 62%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.Temp_Logo img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+}
+.Temp_Logo img:hover {
+    transform: scale(1.07);
+    transition: transform 0.2s ease-out;
+    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
     cursor: pointer;
 }
 
- .Fishnet_Separator_Bottom {
+/* -------------------- Fishnet separators -------------------- */
+.Fishnet_Separator_Top {
+    height: 25.9vh;
+
+    background-image:
+        linear-gradient(rgb(18, 66, 56) 2px, transparent 2px),
+        linear-gradient(90deg, rgb(18, 66, 56) 2px, transparent 2px);
+
+    background-size: 40px 40px;
+    background-position: 0 0;
+
+    opacity: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+.Fishnet_Separator_Bottom {
     height: 35vh;
 
     background-image:
@@ -246,132 +218,17 @@ body {
     gap: 2rem;
 }
 
-/* GRID SECTION */
-.Grid_Section {
-    margin-top: 12vh; /* pushes below header */
-    padding: 8vh 5vw;
-    margin-bottom: 80vh;
-}
-
-/* GRID LAYOUT */
-.Grid_Container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-
-    gap: 3rem;
-    height: 120vh;
-}
-
-/* BOX STYLE */
-.Grid_Box {
-    color: rgb(96, 96, 96);
-
-    padding: 3rem;
-    border: rgb(13, 57, 44) 2px solid;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-
-    transition: transform 0.2s ease, box-shadow 0.1s ease;
-
-    max-width: 100%;
-
-    cursor: inherit;
-
-    border-radius: 3rem;
-
-    box-shadow: 0 0px 0px rgb(13, 57, 44);
-}
-
-/* HOVER EFFECT */
-.Grid_Box:hover {
-    transform: scale(1.005);
-    transition: transform 0.2s ease;
-    transform-origin: bottom center;
-    cursor: url(Custom_Cursor-01.svg), auto;
-
-    opacity: 1;
-}
-
-/* TEXT STYLES */
-.Grid_Box h1 {
-    font-family: monospace;
-    font-size: 2.2rem;
-    font-weight: bold;
-    margin: 0.2rem 0 0.9rem 0;
-    color: rgb(13, 57, 44);
-}
-
-.Grid_Box h3 {
-    font-family: monospace;
-    font-size: 1.7rem;
-    margin: 0.7rem 0 0.9rem 0;
-    font-weight: bold;
-    opacity: 1;
-    color: rgb(38, 27, 7);
-}
-.Grid_Box p {
-    font-family: monospace;
-    font-size: 1.1rem;
-    margin: 0.9rem 0 0.5rem 0;
-    color: rgb(38, 27, 7);
-}
-
-/* ORANGE DIVIDERS */
-.Divider {
-    height: 2px;
-    background-color: rgb(12, 12, 12);
-    margin: 1rem 0;
-    width: 40%;
-}
-
-/* INITIAL STATE (hidden) */
-.Grid_Section {
-    margin-top: 3vh;
-    padding: 2vh 2vw;
-
-    opacity: 0;
-    transform: translateY(200px);
-
-    transition: opacity 0.8s ease, transform 1.8s ease;
-}
-
-/* VISIBLE STATE */
-.Grid_Section.Visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.Fishnet_Separator_Top {
-    height: 36.1vh;
-
-    background-image:
-        linear-gradient(rgb(18, 66, 56) 2px, transparent 2px),
-        linear-gradient(90deg, rgb(18, 66, 56) 2px, transparent 2px);
-
-    background-size: 40px 40px;
-    background-position: 0 0;
-
-    opacity: 1;
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-}
 .Fishnet_Button_Top {
-    
     padding: 1rem 3rem;
 
-    background-color: rgb(29, 66, 148);
+    background-color: rgb(25, 67, 158);
     color: rgb(255, 255, 255);
 
     margin: 4.5rem 0 0 0;
 
     font-family: monospace;
     text-decoration: none;
-    font-size: 2.2rem;
+    font-size: 1rem;
 
     border-radius: 5rem;
 
@@ -382,81 +239,251 @@ body {
     border: rgb(13, 57, 44) 2px solid;
 }
 
-.Header_Title {
+.Fishnet_Button {
+    padding: 16px 34px;
+
+    background-color: orange;
+    color: rgb(38, 27, 7);
+
     font-family: monospace;
-    color: orange;
-    font-size: 1.4rem;
-    font-weight: bold;
+    text-decoration: none;
+    font-size: 18px;
 
-    position:absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 auto;
-    white-space: nowrap;
+    border-radius: 40px;
 
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+
+    transition: all 0.25s ease;
+
+    border: rgb(13, 57, 44) 2px solid;
 }
-
-.Letnica_Modra {
-    background-color: rgb(29, 66, 148);
-    padding: 1rem;
-    border-radius: 1rem;
-    width: fit-content;
-    color: white;
-    font-size: 0.8rem;
-    font-family: monospace;
-}
-
-.Letnica_Rumena {
-    background-color: rgb(254, 226, 16);
-    padding: 1rem;
-    border-radius: 1rem;
-    width: fit-content;
-    color: black;
-    font-size: 0.8rem;
-    font-family: monospace;
-}
-
-.Letnica_Rdeča {
-    background-color: rgb(248, 24, 24);
-    padding: 1rem;
-    border-radius: 1rem;
-    width: fit-content;
-    color: white;
-    font-size: 0.8rem;
-    font-family: monospace;
-}
-
-.Letnica_Zelena {
-    background-color: rgb(34, 238, 7);
-    padding: 1rem;
-    border-radius: 1rem;
-    width: fit-content;
-    color: black;
-    font-size: 0.8rem;
-    font-family: monospace;
-}
-
-.Temp_Logo {
-    
-    height: 62%;  /* key: scale relative to header height */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.Temp_Logo img {
-    height: 100%;
-    width: auto;      /* keeps proportions */
-    object-fit: contain;
-}
-
-.Temp_Logo img:hover {
-    transform: scale(1.07);
-    transition: transform 0.2s ease-out;
-    box-shadow: 0 4px 4px rgba(0,0,0,0.3);
+.Fishnet_Button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
     cursor: pointer;
 }
+
+/* -------------------- Grid section -------------------- */
+.Grid_Section {
+    margin-top: 4vh;
+    margin-bottom: 4vh;
+    padding: 2vh 2vw;
+
+    /* reveal animation */
+    opacity: 0;
+    transform: translateY(200px);
+    transition: opacity 0.8s ease, transform 1s ease;
+}
+.Grid_Section.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* 3 independent columns — expanding a box only pushes boxes in its own column */
+.Grid_Container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: start;
+    gap: 2rem;
+}
+
+.Grid_Column {
+    display: flex;
+    flex-direction: column;
+    gap: 1.8rem;
+    min-width: 0;   /* lets long text shrink inside the column */
+}
+
+/* -------------------- Collapsible boxes -------------------- */
+.Grid_Box {
+    --box-bg:     rgb(255, 250, 225);   /* default: cream (page background) */
+    --box-text:   rgb(18, 66, 56);      /* default: green text */
+    --box-border: rgb(13, 57, 44);
+
+    position: relative;                 /* anchors the pill */
+
+    background-color: var(--box-bg);
+    color: var(--box-text);
+
+    border: 2px solid var(--box-border);
+    border-radius: 1.3rem;
+    padding: 2rem 2rem;
+
+    display: flex;
+    flex-direction: column;
+
+    justify-content: flex-start;   /* was: center */
+    padding-top: 3rem;           /* ← how far from the top */
+
+    overflow: hidden;
+
+    cursor: pointer;
+
+    /* COLLAPSED size — small squarish tile */
+    min-height: 24vh;
+
+    transition: background-color 0.12s ease,
+                color 0.12s ease,
+                transform 0.12s ease,
+                justify-content 0.2s ease;
+}
+
+/* HOVER: green fill, cream text */
+.Grid_Box:hover {
+    background-color: rgb(18, 66, 56);
+    color: rgb(255, 250, 225);
+    transform: scale(1.009);
+    transform-origin: bottom center;
+}
+
+/* OPEN state: let the box grow and top-align the content */
+.Grid_Box.open {
+    min-height: 0;
+    justify-content: flex-start;
+}
+
+/* Open box follows the same rule: cream fill + green text, and stays that way on hover */
+.Grid_Box.open:hover {
+    background-color: var(--box-bg);
+    color: var(--box-text);
+}
+
+/* Header is clickable */
+.Box_Header {
+    cursor: pointer;
+    user-select: none;
+    transition: transform 0.2s ease;
+}
+
+/* Subtle upward lift of the title/description on hover */
+.Grid_Box:hover .Box_Header {
+    transform: translateY(-5px);
+     transition: transform 0.12s ease-out;
+}
+
+/* Don't lift the header when the box is open (so the open text stays put) */
+.Grid_Box.open:hover .Box_Header {
+    transform: translateY(0);
+}
+
+/* Text inherits the box's colour so it flips with the box */
+.Grid_Box h1 {
+    font-family: monospace;
+    font-size: 2rem;
+    font-weight: bold;
+    margin: 0.2rem 0 1rem 0;
+    color: inherit;
+}
+.Grid_Box h3 {
+    font-family: monospace;
+    font-size: 1.3rem;
+    margin: 1rem 0 0.9rem 0.1rem;
+    color: inherit;
+}
+.Grid_Box p {
+    font-family: monospace;
+    font-size: 1rem;
+    margin: 0.9rem 0 0.5rem 0;
+    color: inherit;
+}
+
+/* Divider follows text colour too */
+.Divider {
+    height: 2px;
+    background-color: currentColor;
+    margin: 1rem 0;
+    width: 100%;
+}
+
+/* -------------------- "click to expand" pill -------------------- */
+.Expand_Hint {
+    position: absolute;
+    bottom: 1.9rem;
+    right: 1.8rem;
+    text-align: center;
+
+    padding: 0.6rem 0.9rem;
+
+    background: linear-gradient(135deg,
+                rgb(30,60,170),
+                rgb(25, 67, 158));
+    color: white;
+
+    font-family: monospace;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    font-weight: bold;
+
+    border-radius: 999px;
+
+    pointer-events: none;                    /* clicks still hit the header/box below */
+    opacity: 1;
+    transition: opacity 0.25s ease;
+
+    drop-shadow: 0 20px 4px rgba(0,0,0,0.3);
+}
+
+/* Hide the pill when expanded */
+.Grid_Box.open .Expand_Hint {
+    opacity: 0;
+}
+
+.Box_Details {
+    display: grid;
+    grid-template-rows: 0fr;
+    opacity: 0;
+    transition: grid-template-rows 0.45s ease, opacity 0.35s ease;
+}
+.Grid_Box.open .Box_Details {
+    grid-template-rows: 1fr;
+    opacity: 1;
+}
+.Box_Details_Inner {
+    overflow: hidden;
+    min-height: 0;
+}
+
+/* -------------------- Year badges (unchanged) -------------------- */
+.Letnica_Modra {
+    background-color: rgb(29, 66, 148);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    color: white;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+.Letnica_Rumena {
+    background-color: rgb(248, 24, 24);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    color: white;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+.Letnica_Rdeča {
+    background-color: rgb(248, 24, 24);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    color: white;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+.Letnica_Zelena {
+    background-color: rgb(34, 238, 7);
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: fit-content;
+    color: black;
+    font-size: 0.8rem;
+    font-family: monospace;
+}
+
 </style>
+</head>
 
 <body>
 
@@ -466,7 +493,7 @@ body {
         <img src="Logo_CV_Final.svg" alt="Logo">
     </a>
 
-        <div class="Hamburger" id="hamburger">
+    <div class="Hamburger" id="hamburger">
         <div></div>
         <div></div>
         <div></div>
@@ -483,145 +510,197 @@ body {
         <a href="Other_Skills.html">Other Skills</a>
         <a href="contact.html">Contacts</a>
     </div>
-    <div class="Menu_Overlay" id="menuOverlay"></div>   
+    <div class="Menu_Overlay" id="menuOverlay"></div>
 </div>
 
-<section class="Fishnet_Separator_Top"> 
-     <a class="Fishnet_Button_Top">My Work Experience</a>
+<section class="Fishnet_Separator_Top">
+    <a class="Fishnet_Button_Top">My Work Experience</a>
 </section>
 
-
 <section class="Grid_Section">
-
     <div class="Grid_Container">
 
-        <!-- LEFT BIG BOX -->
-        <div class="Grid_Box">
-            <h1>Fora d.o.o.</h1>
-            <div class="Divider"></div>
-            
-            <h3>Graphic Design and Web development</h3>
-            <h2 class="Letnica_Rumena">(2024 - current)</h2>
+        <!-- ================= COLUMN 1 ================= -->
+        <div class="Grid_Column">
 
-            <p><b>FORA</b> is an <b>IT company</b> that develops streaming platforms. Some of its customers include Donald Trump (Truth+), T2 (T2ToGo), UAE (Rotana) and many more.</p>
-            
-            <p>I create <b>Ads</b> for movies, shows, new channel launches and sporting events. I'm responsible for the brainstorming, I sketch it roughly out, and finally after acquiring feedback, finish it in either Photoshop, Illustrator, Blender or any combination thereof.</p>
-            
-            <p>At FORA I also currently do and am studying Web development and UI/UX design. I create logos, icons, UI setups and more. I also do and am slowly studying programming in general.</p>
+            <!-- Fora -->
+            <div class="Grid_Box">
+                <span class="Expand_Hint">Click to expand</span>
 
-            <p></p>
+                <div class="Box_Header">
+                    <h1>Fora d.o.o.</h1>
+                    <div class="Divider"></div>
+                    <h3>Graphic designer, Web developer</h3>
+                </div>
+
+                <div class="Box_Details">
+                    <div class="Box_Details_Inner">
+                        <h2 class="Letnica_Rumena">(2024 - current)</h2>
+
+                        <p><b>FORA d.o.o.</b> is an IT company that develops streaming platforms. It enables partners to stream video content to their users. More famous partners include T2 (Slovenian Telecomunication), T+ (Truth Social video expansion), Entyen, Avo, AfriTV and much more.</p>
+
+                        <p>My main responsibilities include creating marketing materials, such as movie promotions, thumbnails, website animations <b>AND</b> also designing and coding the visual identity of websites (T2ToGo, T+ and more). I mostly use Adobe CC software for making promotions, ads, animations used in these platforms, and also brainstorm, benchmark then implement new ideas into websites. For Web development, I usually sketch out the initial concepts, refine them in Figma, and finally code them using HTML, CSS, and JavaScript. Ideas are later presented to operational managers, then coordinated with the development team, backend etc. I have to benchmark the competition, analyze popular UI trends and try to fit those so they fit the visual identity of brands we work for.</p>
+
+                        <p>At FORA d.o.o. I had and still have tremendous opportunities to grow and learn, both coding and marketing. I use special tools to receive feedback on the effectiveness of my designs and implementations, such as clicks that lead to views, most common times of streaming etc.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Sport Center -->
+            <div class="Grid_Box">
+                <span class="Expand_Hint">Click to expand</span>
+
+                <div class="Box_Header">
+                    <h1>Sport Center Dolgi Most</h1>
+                    <div class="Divider"></div>
+                    <h3>Graphic Designer, Sometimes Gym Reception</h3>
+                </div>
+
+                <div class="Box_Details">
+                    <div class="Box_Details_Inner">
+                        <h2 class="Letnica_Rdeča">(2019 - 2023)</h2>
+
+                        <p>I worked weekends at my local sports center. Most of the time when I worked reception, I met alot of people, started communicating profesionally. I have tons of experience working under pressure and keeping calm in turbulent environments.</p>
+
+                        <p>Working there really made my communication skills better. I express myself and my ideas clearly and honestly.</p>
+
+                        <p>Back then, I was somewhat limited in my software knowledge, but I was eager to learn and improve. Over the years, I've managed to create a wide range of design projects. I've made booklets, flyers, and posters for various events. I've made posts, videos, animations and refreshed the website every so often.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- RIGHT TOP -->
-        <div class="Grid_Box">
-            <h1>Ministry of Digitalization RS</h1>
-            <div class="Divider"></div>
-            
-            <h3>Event Organizer and Designer</h3>
-            <h2 class ="Letnica_Modra">(2022 - 2025)</h2>
-                        
-            <p>My job at the Ministry was a pleasure to work at. It was very diversified, involving brainstorming and creating campaigns from the concept to the final execution. </p>
-                
-            <p>Campaigns had to have a specific identity and feel. Design was usually <b>print based</b>, leading me to create broschures, posters, huge stickers and even whole billboards.</p>
+        <!-- ================= COLUMN 2 ================= -->
+        <div class="Grid_Column">
 
-            <p>I've also worked on <b>digital design</b>, creating social media posts, animations, collaborations with other RS institutions and much more.</p>
+            <!-- Ministry -->
+            <div class="Grid_Box">
+                <span class="Expand_Hint">Click to expand</span>
+
+                <div class="Box_Header">
+                    <h1>Ministry of Digitalization</h1>
+                    <div class="Divider"></div>
+                    <h3>Campaign Designer, Social Media designer</h3>
+                </div>
+
+                <div class="Box_Details">
+                    <div class="Box_Details_Inner">
+                        <h2 class="Letnica_Modra">(2022 - 2025)</h2>
+
+                        <p>The Ministry of Digitalization provided a dynamic environment where I could contribute to various digital initiatives. My role involved designing and implementing marketing campaigns across multiple channels.</p>
+
+                        <p>Campaigns had to be coordinated with the overall digital strategy and aligned with the ministry's goals. I had to collaborate with various departments to ensure seamless execution. I took care of the logo design, brand identity development, and visual communication across all marketing materials. I created posters, billboards, stickers, keychains, shirts, hats and so much more.</p>
+
+                        <p>With no campaigns schedules, I focused on <b>digital design</b>, creating social media posts, such as animations, videos, illustrations, and more.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- University -->
+            <div class="Grid_Box">
+                <span class="Expand_Hint">Click to expand</span>
+
+                <div class="Box_Header">
+                    <h1>University Projects</h1>
+                    <div class="Divider"></div>
+                    <h3>Graphic Designer, Marketing projects</h3>
+                </div>
+
+                <div class="Box_Details">
+                    <div class="Box_Details_Inner">
+                        <h2 class="Letnica_Zelena">(2019 - 2023)</h2>
+
+                        <p>Studying marketing enabled me to work on many design projects. I've created hypothetical companies, their logos, their brand and presented them in class.</p>
+
+                        <p>Marketing made me understand the importance of understanding the client, analyzing the market and creating creative solutions. It made me be aware of eye-grabbing elements, attention seeking techniques. I love combining marketing with design.</p>
+
+                        <p>At univerity, we've created app concepts for the Green Karst region of Slovenia, together with the Slovenian Tourist Board. I've designed the whole brand, logo, and every page of the app with every functionality.</p>
+
+                        <p>We also created and visualized tourist ideas, projects for Ljubljana. I've used 3d rendered software to insert 3d models into photos of the city, created posters, created broscures and so much more.</p>
+                    </div>
+                </div>
+            </div>
+
         </div>
 
-        <!-- RIGHT BOTTOM -->
-        <div class="Grid_Box">
-            <h1>Sport Center Dolgi Most</h1>
-            <div class="Divider"></div>
-            <h3>Reception and Graphic Design</h3>
-            <h2 class="Letnica_Rdeča">(2019 - 2023)</h2>
+        <!-- ================= COLUMN 3 ================= -->
+        <div class="Grid_Column">
 
-            <p>I worked weekends at my local sports center, where I live near. Most of the time I worked reception. I met alot of people, started communicating profesionally. I have tons of experience working under pressure and keeping calm in turbulent environments.</p>
+            <!-- Freelanced work -->
+            <div class="Grid_Box">
+                <span class="Expand_Hint">Click to expand</span>
 
-            <p>Working there really made my communication skills better. I express myself and my ideas clearly and honestly, while trying to understand everybody around me.</p>
+                <div class="Box_Header">
+                    <h1>Freelanced work</h1>
+                    <div class="Divider"></div>
+                    <h3>Graphic Design and Web development</h3>
+                </div>
 
-            <p>Sometimes I would help with graphic design projects, creating flyers and posters for events.</p>
+                <div class="Box_Details">
+                    <div class="Box_Details_Inner">
+                        <h2 class="Letnica_Rumena">(2019 - current)</h2>
 
-        </div>
+                        <p>I've always been passionate about design and technology, which led me to take on freelance projects in both graphic design and web development.</p>
 
-                <div class="Grid_Box">
-            <h1>University Projects</h1>
-            <div class="Divider"></div>
-            <h3>Graphic Design</h3>
-            <h2 class="Letnica_Zelena">(2019 - 2023)</h2>
+                        <p>Some of my work I've been comissioned to create, including logos, websites, and digital marketing materials. I've created hockey jerseys for Panterji, created posts for my University, vouchers for Športni center Dolgi Most, some simple habit tracker app for a client etc. </p>
 
-            <p>Studying marketing enabled me to work on many design projects. I've created hypothetical companies, their logos, their brand and given every opportunity presented them in class.</p>
+                        <p>Since Univerity and student work has been taking alot of my time, I do tend to take on more freelance projects when I have the capacity. I love to interact with clients and bring their visions to life.</p>
+                    </div>
+                </div>
+            </div>
 
-            <p>Marketing made me understand the importance of understanding the client, analyzing the market and creating creative solutions.</p>
         </div>
 
     </div>
-
 </section>
 
 <section class="Fishnet_Separator_Bottom">
-
     <a class="Fishnet_Button">Instagram</a>
     <a class="Fishnet_Button">Email</a>
     <a class="Fishnet_Button">LinkedIn</a>
-
 </section>
-</body>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-
-    const sections = document.querySelectorAll(".About_Section, .About_Section_Dark" + ", .About_Section_Personal");
-
-    setTimeout(() => {
-        sections.forEach(section => {
-            section.classList.add("Visible");
-        });
-    }, 100);
-
-});
-
 history.scrollRestoration = "manual";
 window.scrollTo(0, 0);
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const section = document.getElementById("about_light");
-    const image = document.querySelector(".About_Image");
-
-    setTimeout(() => {
-        image.style.opacity = "1";
-        image.style.transform = "translateY(0)";
-    }, 100);
-
-    setTimeout(() => {
-        section.classList.add("Visible");
-    }, 350);
-
-});
-
-document.addEventListener("DOMContentLoaded", function() {
-
+    /* -------------------- Reveal Grid_Section -------------------- */
     const gridSection = document.querySelector(".Grid_Section");
+    if (gridSection) {
+        setTimeout(() => gridSection.classList.add("Visible"), 60);
+    }
 
-    setTimeout(() => {
-        gridSection.classList.add("Visible");
-    }, 60);
+    /* -------------------- Menu toggle -------------------- */
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("menuOverlay");
 
-});
-/* --------------------------
-   Menu toggle (outside DOMContentLoaded)
----------------------------*/
-const hamburger = document.getElementById("hamburger");
-const menu = document.getElementById("menu");
-const overlay = document.getElementById("menuOverlay");
+    hamburger.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        overlay.classList.toggle("active");
+    });
+    overlay.addEventListener("click", () => {
+        menu.classList.remove("open");
+        overlay.classList.remove("active");
+    });
 
-hamburger.addEventListener("click", () => {
-    menu.classList.toggle("open");
-    overlay.classList.toggle("active");
-});
+    /* -------------------- Collapsible boxes -------------------- */
+    document.querySelectorAll(".Grid_Box").forEach(box => {
+        box.addEventListener("click", (e) => {
+            // ignore clicks that land inside the details (so links/text selection work)
+            if (e.target.closest(".Box_Details")) return;
 
-overlay.addEventListener("click", () => {
-    menu.classList.remove("open");
-    overlay.classList.remove("active");
+            document.querySelectorAll(".Grid_Box.open").forEach(openBox => {
+                if (openBox !== box) openBox.classList.remove("open");
+            });
+
+            box.classList.toggle("open");
+        });
+    });
+
 });
 </script>
 

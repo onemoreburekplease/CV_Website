@@ -7,15 +7,29 @@
 
 <style>
 
-body {
-    margin: 0;
-    background-color: rgb(255, 250, 225);
-    font-family: monospace;
-    color: rgb(38, 27, 7);
+/* -------------------- Base -------------------- */
+:root {
+    --cream: rgb(255, 250, 225);
+    --green: rgb(18, 66, 56);
+    --green-dark: rgb(13, 57, 44);
+    --orange: orange;
+    --brown: rgb(38, 27, 7);
 }
 
+body {
+    margin: 0;
+    background-color: var(--cream);
+    font-family: monospace;
+    color: var(--brown);
+    line-height: 1.9;
+    font-size: 17px;
+    position: relative;
+}
 
-/* Header */
+p { margin: 0 0 1.1rem 0; }
+h1, h2, h3 { margin: 0 0 0.8rem 0; }
+
+/* -------------------- Header -------------------- */
 .Header_Box {
     width: 100%;
     height: 11vh;
@@ -27,248 +41,54 @@ body {
 
     display: flex;
     align-items: center;
-
     box-sizing: border-box;
     z-index: 1000;
 }
 
-
 .Header_Box a {
     display: inline-block;
     padding: 0.6rem 1.4rem;
-    color: rgb(38, 27, 7);
+    color: orange;
     text-decoration: none;
     font-size: 0.95rem;
     font-family: monospace;
-    color: orange;
-
     position: relative;
     overflow: hidden;
-
     transition: all 0.25s ease;
 }
 
-
-/* =====================
-   ABOUT SECTION
-===================== */
-
-.About_Section {
-    padding: 0 10vw 8vh 12vw;
-
-    display: flex;
-    align-items: center;
-    gap: 8.2vw;
-
-    line-height: 2;
-    font-size: 17px;
-
-    opacity: 0;
-    transform: translateY(90px);
-    transition: opacity 0.6s ease, transform 0.9s ease;
-}
-.About_Image {
-    flex: none;
-    width: 390px;
-    height: 390px;
-    margin-top: 30vh;
-
-    opacity: 0;
-    transform: translateY(40px);
-    transition: opacity 0.8s ease, transform 0.8s ease;
-
-    stroke: rgb(18, 66, 56) 2px solid;
-
-    animation: float 6s ease-in-out infinite;
-}
-
-.About_Image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    border-radius: 50%;
-
-    outline: 2px rgb(18, 66, 56) solid;
-
-
-    transition: transform 0.6s ease;
-
-    
-}
-
-.About_Image img:hover {
-    transform: scale(1.05);
-    transform: rotate(360deg);
-    transition: transform 0.5s ease;    
-}
-
-
-
-@media (max-width: 900px) {
-    .About_Section {
-        flex-direction: column;
-        text-align: center;
-    }
-
-    .About_Image {
-        width: 190px;
-        height: 190px;
-    }
-}
-
-.About_Section.Visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.About_Section_Dark {
-    margin-top: 3vh;
-    padding: 2vh 15vw 15vh 15vw;
-    line-height: 2;
-    font-size: 17px;
-    background-color: rgb(18, 66, 56);
+.Header_Title {
+    font-family: monospace;
     color: orange;
+    font-size: 1.4rem;
+    font-weight: bold;
 
-    opacity: 0;
-    transform: translateY(90px);
-    transition: opacity 0.5s ease-in, transform 0.9s ease;
-}
-
-.About_Section_Dark.Visible {
-    opacity: 1;
-    transform: translateY(0);
-}
-
-.About_Section_Personal {
-    margin-top: 3vh;
-    padding: 2vh 15vw 10vh 15vw;
-    line-height: 2;
-    font-size: 17px;
-    color: rgb(38, 27, 7);
-
-    opacity: 0;
-    transform: translateY(90px);
-    transition: opacity 0.5s ease-in, transform 0.9s ease;
-}
-
-.About_Section_Personal.Visible {
-    opacity: 1;
-    transform: translateY(0);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    margin: 0 auto;
+    white-space: nowrap;
 }
 
 .Temp_Logo {
-    
-    height: 65%;  /* key: scale relative to header height */
+    height: 62%;
     display: flex;
     align-items: center;
     justify-content: center;
 }
-
 .Temp_Logo img {
     height: 100%;
-    width: auto;      /* keeps proportions */
+    width: auto;
     object-fit: contain;
 }
-
 .Temp_Logo img:hover {
-    transform: scale(1.08);
+    transform: scale(1.07);
     transition: transform 0.2s ease-out;
     box-shadow: 0 4px 4px rgba(0,0,0,0.3);
     cursor: pointer;
 }
 
- .Fishnet_Separator_Bottom {
-    height: 35vh;
-
-    background-image:
-        linear-gradient(rgb(18, 66, 56) 2px, transparent 2px),
-        linear-gradient(90deg, rgb(18, 66, 56) 2px, transparent 2px);
-
-    background-size: 40px 40px;
-    background-position: 0 0;
-
-    opacity: 0.8;
-
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-    
-}
-
-.Fishnet_Button {
-
-    padding: 16px 34px;
-
-    background-color: orange;
-    color: rgb(38, 27, 7);
-
-    font-family: monospace;
-    text-decoration: none;
-    font-size: 18px;
-
-    border-radius: 40px;
-
-    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
-
-    transition: all 0.25s ease;
-
-    border: rgb(13, 57, 44) 2px solid;
-    
-}
-
-.Fishnet_Button:hover {
-
-    transform: translateY(-3px);
-
-    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
-
-    backdrop-filter: blur(4px);
-
-    cursor: pointer;
-}
-
-
-.hello {
-    font-size: 10rem;
-    margin-bottom: 1rem;
-    margin-top: 6rem;
-}
-
-@media (max-width: 900px) {
-    .hello {
-        font-size: 3rem;
-        margin-top: 3rem;
-    }
-}
-@media (max-width: 900px) {
-    .Header_Title {
-        font-size: 1rem;
-        max-width: 60vw;
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}
-@media (max-width: 900px) {
-    .About_Section {
-        flex-direction: column;
-        flex-wrap: nowrap;
-        padding: 0 5vw 8vh 5vw;
-        gap: 2rem;
-    }
-}
-
-.About_Separator {
-    width: 20%;
-    align-content: center;
-    height: 2px;
-    background: orange;
-    border: none;
-    margin: 2rem auto;
-}
-
-                                                    /*Hamburger*/  
+/* -------------------- Hamburger -------------------- */
 .Hamburger {
     width: 2.5rem;
     height: 1.6rem;
@@ -315,6 +135,8 @@ body {
     transition: transform 0.4s ease;
 
     z-index: 2000;
+
+
 }
 
 /* Open state */
@@ -335,6 +157,7 @@ body {
     transition: opacity 0.3s ease;
 
     z-index: 1500;
+    
 }
 
 .Menu_Overlay.active {
@@ -348,6 +171,7 @@ body {
     padding: 0.8rem 1.5rem;
 
     text-decoration: none;
+    color: orange;
 
     font-family: monospace;
     font-size: 0.95rem;
@@ -391,12 +215,10 @@ body {
     background-color: #aa00ff;
     color: white;
 }
-
 .Menu a:nth-child(7):hover {
     background-color: #9b0979;
     color: white;
 }
-
 /* Divider lines between menu links */
 .Menu a:not(:last-child) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.1);
@@ -409,41 +231,342 @@ body {
 }
 
 @keyframes microShake {
-    0% { transform: translateX(0); }
-    25% { transform: translateX(-2px); }
-    50% { transform: translateX(2px); }
-    75% { transform: translateX(-1px); }
-    100% { transform: translateX(0); }
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-2px); }
+        50% { transform: translateX(2px); }
+        75% { transform: translateX(-1px); }
+        100% { transform: translateX(0); }
 }
 
 .Menu a:hover {
     animation: microShake 0.35s ease;
 }
 
-.Header_Title {
-    font-family: monospace;
-    color: orange;
-    font-size: 1.4rem;
-    font-weight: bold;
+/* -------------------- Reveal helper -------------------- */
+.Reveal {
+    opacity: 0;
+    transform: translateY(60px);
+    transition: opacity 0.7s ease, transform 0.9s ease;
+}
+.Reveal.Visible {
+    opacity: 1;
+    transform: translateY(0);
+}
 
-    position:absolute;
-    left: 50%;
-    transform: translateX(-50%);
-    margin: 0 auto;
-    white-space: nowrap;
+/* =====================
+   TOP FISHNET (copied from References)
+===================== */
+.Fishnet_Separator_Top {
+    height: 25.9vh;
+
+    background-image:
+        linear-gradient(rgb(18, 66, 56) 2px, transparent 2px),
+        linear-gradient(90deg, rgb(18, 66, 56) 2px, transparent 2px);
+
+    background-size: 40px 40px;
+    background-position: 0 0;
+
+    opacity: 1;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.Fishnet_Button_Top {
+    padding: 0.6rem 2.4rem;
+
+    background-color: rgb(8, 198, 15);
+    color: rgb(255, 255, 255);
+
+    margin: 4.8rem 0 0 0;
+
+    font-family: monospace;
+    font-weight: bold;
+    text-decoration: none;
+    font-size: 1rem;
+
+    border-radius: 5rem;
+
+    box-shadow: 0 6px 0px rgb(13, 57, 44);
+
+    transition: all 0.25s ease;
+
+    border: rgb(13, 57, 44) 2px solid;
+}
+
+/* =====================
+   HERO (light)
+===================== */
+.Hero {
+    padding: 8vh 8vw 10vh 8vw;
+    display: grid;
+    grid-template-columns: 1.4fr 1fr;
+    align-items: center;
+    gap: 6vw;
+}
+
+.Hero_Text .hello {
+    font-size: 5rem;
+    line-height: 1;
+    margin: 0 0 1.4rem 0;
+    color: var(--green);
+    letter-spacing: -0.02em;
+    padding: 0 0 1rem 0;
+}
+
+.Hero_Text p {
+    max-width: 40vw;
+    margin: 0 0 1rem 0;
+ }
+
+.Hero_Text .Intro_Line {
+    display: inline-block;
+    font-size: 0.85rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--green);
+    background: rgba(18, 66, 56, 0.2);
+    padding: 0.35rem 0.9rem;
+    border-radius: 999px;
+    margin-bottom: 1.4rem;
+}
+
+.Hero_Image {
+    justify-self: center;
+    width: min(390px, 80%);
+    aspect-ratio: 1 / 1;
+
+    border-radius: 50%;
+    overflow: hidden;
+
+    outline: 2px solid var(--green);
+    outline-offset: 10px;
+
+    animation: float 6s ease-in-out infinite;
+}
+
+.Hero_Image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.6s ease;
+}
+.Hero_Image img:hover {
+    transform: scale(1.05) rotate(360deg);
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50%      { transform: translateY(-12px); }
+}
+
+/* =====================
+   SECTION WRAPPER
+===================== */
+.Section {
+    padding: 8vh 12vw;
+}
+
+.Section.Dark {
+    background-color: var(--green);
+    color: var(--orange);
+}
+
+.Section_Label {
+    display: inline-block;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--green);
+    border: 1px solid var(--green);
+    border-radius: 999px;
+    padding: 0.3rem 0.9rem;
+    margin-bottom: 1.4rem;
+}
+.Section.Dark .Section_Label {
+    color: var(--orange);
+    border-color: var(--orange);
+}
+
+.Section h1 {
+    font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+    line-height: 1.15;
+    margin-bottom: 1.6rem;
+}
+
+/* Two-column technical block */
+.Two_Col {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 1.5rem;
+}
+.Two_Col p { margin: 0 0 1rem 0; }
+
+/* Software tags */
+.Tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin: 1.4rem 0 2rem 0;
+}
+.Tag {
+    font-size: 0.85rem;
+    padding: 0.35rem 0.85rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 165, 0, 0.5);
+    color: var(--orange);
+}
+
+/* Orange separator */
+.About_Separator {
+    width: 100%;
+    height: 1px;
+    background: rgba(255, 165, 0, 0.35);
+    border: none;
+    margin: 2.4rem 0;
+}
+
+/* =====================
+   HOBBIES GRID
+===================== */
+.Hobby_Grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.4rem;
+    margin-top: 1.5rem;
+}
+.Hobby_Card {
+    border: 1px solid rgba(18, 66, 56, 0.25);
+    border-radius: 1.5rem;
+    padding: 1.4rem 1.6rem;
+    background: rgba(18, 66, 56, 0.04);
+    transition: transform 0.25s ease, background 0.25s ease, border-color 0.25s ease;
+}
+.Hobby_Card:hover {
+    transform: translateY(-4px);
+    background: rgba(18, 66, 56, 0.08);
+    border-color: var(--green);
+}
+.Hobby_Card h3 {
+    font-size: 1rem;
+    color: var(--green);
+    margin-bottom: 0.4rem;
+}
+.Hobby_Card p {
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+/* Closing line */
+.Closing {
+    margin-top: 2.5rem;
+    padding: 1.6rem 1.8rem;
+    border-left: 4px solid var(--orange);
+    background: rgba(255, 165, 0, 0.08);
+    border-radius: 0 1rem 1rem 0;
+}
+
+/* =====================
+   BOTTOM FISHNET
+===================== */
+.Fishnet_Separator_Bottom {
+    height: 35vh;
+
+    background-image:
+        linear-gradient(var(--green) 2px, transparent 2px),
+        linear-gradient(90deg, var(--green) 2px, transparent 2px);
+
+    background-size: 40px 40px;
+    background-position: 0 0;
+
+    opacity: 0.8;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+}
+
+.Fishnet_Button {
+    padding: 16px 34px;
+    background-color: var(--orange);
+    color: var(--brown);
+    font-family: monospace;
+    text-decoration: none;
+    font-size: 18px;
+    border-radius: 40px;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.25);
+    transition: all 0.25s ease;
+    border: var(--green-dark) 2px solid;
+}
+.Fishnet_Button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.35);
+    backdrop-filter: blur(4px);
+    cursor: pointer;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media (max-width: 900px) {
+    .Hero {
+        grid-template-columns: 1fr;
+        padding: 16vh 6vw 8vh 6vw;
+        gap: 3rem;
+        text-align: center;
+    }
+    .Hero_Text p { max-width: none; margin-left: auto; margin-right: auto; }
+    .Hero_Image { width: 190px; }
+
+    .Section { padding: 6vh 6vw; }
+    .Two_Col { grid-template-columns: 1fr; gap: 1rem; }
+    .Hobby_Grid { grid-template-columns: 1fr; }
+
+    .Header_Title {
+        font-size: 1rem;
+        max-width: 60vw;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .Fishnet_Separator_Bottom {
+        flex-direction: column;
+        height: auto;
+        padding: 6vh 0;
+    }
+
 
 }
+
+    .Inline_Link {
+    color: rgb(184, 120, 0);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    transition: color 0.2s ease;
+
+}
+.Inline_Link:hover {
+    color: white;
+}
+
 </style>
 </head>
 
 <body>
 
+<!-- ================= HEADER ================= -->
 <div class="Header_Box">
     <a class="Temp_Logo" href="Home.html">
         <img src="Logo_CV_Final.svg" alt="Logo">
     </a>
 
-            <div class="Hamburger" id="hamburger">
+    <div class="Hamburger" id="hamburger">
         <div></div>
         <div></div>
         <div></div>
@@ -460,144 +583,115 @@ body {
         <a href="Other_Skills.html">Other Skills</a>
         <a href="contact.html">Contacts</a>
     </div>
-    <div class="Menu_Overlay" id="menuOverlay"></div>   
+    <div class="Menu_Overlay" id="menuOverlay"></div>
 </div>
 
-<section class="About_Section" id="about_light">
+<!-- ================= TOP FISHNET (copied from References) ================= -->
+<section class="Fishnet_Separator_Top">
+    <a class="Fishnet_Button_Top">About Me</a>
+</section>
 
-<div class="About_Image">
-    <img src="Profilka_4.jpg" alt="Amar Zulić">
-</div>
+<!-- ================= HERO ================= -->
+<section class="Hero Reveal" id="about_light">
 
-<div>
-    <h1 class="hello">Hello!</h1>
+    <div class="Hero_Text">
+        <span class="Intro_Line">Graphic & Motion Designer</span>
+        <h1 class="hello">Zivijo!</h1>
 
-    <p>
-    My name is Amar Zulić, I'm a graphic designer and motion designer from Ljubljana, Slovenia.
-    </p>
+        <p>My name is Amar Zulić, I'm a Graphic designer, Motion designer and Web Designer from Ljubljana, Slovenia.</p>
+        <p>I'm currently a 26 year old student finishing my studies.</p>
+        <p>I have completed my Bachelor's degree in <b>Marketing</b> at the University of Ljubljana, School of Economics, and am currently pursuing a Master's degree in <b>Tourism Marketing.</b></p>
+    </div>
 
-    <p> 
-    I'm currently a 25 year old student finishing my studies.
-    </p>
-
-    <p>
-    I have completed my Bachelor's degree in <b>Marketing</b> at the University of Ljubljana, School of Economics, and am currently pursuing a Master's degree in <b>Tourism Marketing.</b>
-    </p>
-
-
-</div>
+    <div class="Hero_Image">
+        <img src="Profilka_4.jpg" alt="Amar Zulić">
+    </div>
 
 </section>
 
-<section class="About_Section_Dark" id="about_dark">
+<!-- ================= TECHNICAL INFO (dark) ================= -->
+<section class="Section Dark Reveal" id="about_dark">
 
-<h1>Technical Info</h1>
+    <span class="Section_Label">01 — Technical Info</span>
+    <h1>Design, motion, and code.</h1>
 
-<p>
-I have been drawing since childhood. I tend to practice every day, even now. Being a strong hobby of mine, drawing sparked my interest in other forms of visual creativity, so I started teaching myself how to create digitally. I started experimenting with Photoshop about 10 years ago, which I used to genereally create custom gifts for friends and family members. Later on, I started learning other software, eventually moving to animation, 3D design, and motion design. My last couple of jobs also thought me web design, so I've coded this entire website myself, and I really enjoyed the process.
-</p>
+    <div class="Two_Col">
+        <div>
+            <p>I have been drawing since childhood. I tend to practice every day, even now. Being a strong hobby of mine, drawing sparked my interest in other forms of visual creativity, so I started teaching myself how to create digitally. I started experimenting with Photoshop about 10 years ago, which I used to generally create custom gifts for friends and family members. Later on, I started learning other software, eventually moving to animation, 3D design, and motion design. My last couple of jobs also taught me web design, so I've coded this entire website myself, and I really enjoyed the process.</p>
+        </div>
+        <div>
+            <p><b>I am extremely interested in everything.</b> I love 3D design as much as I like, for example, coding in Android Studio. Some fields of design I realistically know more, such as motion design in After Effects or vector design in Illustrator, but I am always looking for opportunities to learn and explore elsewhere.</p>
+        </div>
+    </div>
 
+    <hr class="About_Separator">
 
-<p>
-<b>I am extremely interested in everything</b>. I love 3D design as much as I like, for example, coding in Android studio. Some fields of design I realitically know more, such as motion design in After Effects or vector design in Illustrator, but I am always looking for opportunities to learn and explore elsewhere.
-</p>
+    <h2 style="font-size:1rem; letter-spacing:0.15em; text-transform:uppercase;">Software I use</h2>
+    <div class="Tags">
+        <span class="Tag">Adobe Photoshop</span>
+        <span class="Tag">Adobe Illustrator</span>
+        <span class="Tag">Adobe After Effects</span>
+        <span class="Tag">Adobe Premiere Pro</span>
+        <span class="Tag">Adobe InDesign</span>
+        <span class="Tag">Blender3D</span>
+        <span class="Tag">Figma</span>
+        <span class="Tag">Unity</span>
+        <span class="Tag">HTML</span>
+        <span class="Tag">CSS</span>
+        <span class="Tag">JavaScript</span>
+    </div>
 
+    <p>Projects I have gathered on this website are a mix of personal and client work. Some projects are for my student jobs, some are University projects, and the rest are generally projects made from pure joy. Click on my <a href="Projects.html" class="Inline_Link">Projects page</a> to see them all!</p>
 
+    <hr class="About_Separator">
 
- <div class="About_Separator"></div>
-
-<p>
-Software I use: Adobe Photoshop, Adobe Illustrator, Adobe After Effects, Adobe Premiere Pro, Adobe InDesign, Blender3D, Figma, Unity, coding languages (HTML, CSS, JavaScript), and more.
-</p>
-
-
-
-<p>
-Projects I have gathered on this website are a mix of personal and client work. Some projects are from my student jobs, some are University projects, and the rest are generally projects made from pure joy.
-</p>
-
- <div class="About_Separator"></div>
-<p>
-I am extremely thankful for <b>studying marketing</b> as I found it enhancing aspects of my designs, my studies made me understand the importance of uderstanding the client (analyzing them in detail), understanding the market (the conditions, the competition), benchmarking the competition (analyzing their strategies, improving myself), conducting market research, measuring the results (qualitative or quantitative), and much more. 
-</p>
-
-</section>
-
-<section class="About_Section_Personal" id="about_personal">
-
-<h1>Hobbies</h1>
-<p>
-I do tend to have many hobies, as said, I love drawing and it is my favorite past-time hobby. 
-
-I also love Arts&Crafts projects, I've just recently started making miniature figures from Polymer clay. I also like making Mosaics from ceramic shards, I've started Embroiding pictures on clothing and so on.
-</p>
-<p>
-I'm a big Football fan, I like watching it and talking about it.
-</p>
-<p>
-I also generally just like finding joy in life, I play different sports recreationally, I like to hike, I like cycling, I like running marathons, travelling, working on the garden, and so much more.
-</p>
-<p>
-That's generally it! Feel free to contact me for any collaborations, questions, or just to say hi! I am always open to meeting new people. For a project or profesionally. Come and say hi!
-</p>
-
+    <p>I am extremely thankful for <b>studying marketing</b> as I found it enhancing aspects of my designs. My studies made me understand the importance of analyzing the client, understanding the market (the conditions, the competition), benchmarking the competition (analyzing their strategies, their added values, their advantages), conducting market research, measuring the results (qualitative or quantitative), and much more. Feel free to open and check my <a href="Experience.html" class="Inline_Link">Work Experience page</a>, to see in detail what I've learned through my professional journey.</p>
 
 </section>
 
+<!-- ================= HOBBIES (light) ================= -->
+<section class="Section Reveal" id="about_personal">
+
+    <div class="Closing">
+        <p style="margin:0;">That's generally it! Feel free to contact me for any collaborations, questions, or just to say hi! I am always open to meeting new people — for a project or professionally. Come and say hi!</p>
+    </div>
+
+</section>
+
+<!-- ================= BOTTOM FISHNET ================= -->
 <section class="Fishnet_Separator_Bottom">
-
     <a class="Fishnet_Button">Instagram</a>
     <a class="Fishnet_Button">Email</a>
     <a class="Fishnet_Button">LinkedIn</a>
-
 </section>
 
 <script>
-document.addEventListener("DOMContentLoaded", function() {
-
-    const sections = document.querySelectorAll(".About_Section, .About_Section_Dark" + ", .About_Section_Personal");
-
-    setTimeout(() => {
-        sections.forEach(section => {
-            section.classList.add("Visible");
-        });
-    }, 100);
-
-});
-
 history.scrollRestoration = "manual";
 window.scrollTo(0, 0);
 
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener("DOMContentLoaded", function () {
 
-    const section = document.getElementById("about_light");
-    const image = document.querySelector(".About_Image");
-
+    /* Reveal all sections shortly after load */
+    const sections = document.querySelectorAll(".Reveal");
     setTimeout(() => {
-        image.style.opacity = "1";
-        image.style.transform = "translateY(0)";
+        sections.forEach(section => section.classList.add("Visible"));
     }, 100);
 
-    setTimeout(() => {
-        section.classList.add("Visible");
-    }, 350);
+    /* Menu toggle */
+    const hamburger = document.getElementById("hamburger");
+    const menu = document.getElementById("menu");
+    const overlay = document.getElementById("menuOverlay");
+
+    hamburger.addEventListener("click", () => {
+        menu.classList.toggle("open");
+        overlay.classList.toggle("active");
+    });
+    overlay.addEventListener("click", () => {
+        menu.classList.remove("open");
+        overlay.classList.remove("active");
+    });
 
 });
-
-const hamburger = document.getElementById("hamburger");
-const menu = document.getElementById("menu");
-const overlay = document.getElementById("menuOverlay");
-
-hamburger.addEventListener("click", () => {
-    menu.classList.toggle("open");
-    overlay.classList.toggle("active");
-});
-
-overlay.addEventListener("click", () => {
-    menu.classList.remove("open");
-    overlay.classList.remove("active");
-});
-
 </script>
 
 </body>
